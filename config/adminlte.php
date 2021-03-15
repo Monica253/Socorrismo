@@ -241,11 +241,31 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
-        [
+        ['header' => 'ADMINISTRATOR'],
+        /*[
             'text' => 'profile',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
+        ],*/
+        [
+            'text' => 'managers',
+            'route'  => 'admin.encargados.index',
+            'icon' => 'fas fa-fw fa-user-tie',
+        ],
+        [
+            'text' => 'employees',
+            'route'  => 'admin.empleados.index',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'hotels',
+            'route'  => 'admin.hoteles.index',
+            'icon' => 'fas fa-fw fa-hotel',
+        ],
+        [
+            'text' => 'pools',
+            'route'  => 'admin.piscinas.index',
+            'icon' => 'fas fa-fw fa-swimming-pool',
         ],
         [
             'text' => 'change_password',
