@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{$piscina->id}}</td>
                             <td>{{$piscina->nombre}}</td>
-                            <td>{{$piscina->hotel_id}}</td>
+                            <td>{{$piscina->centro->nombre}}</td>
                             <td>{{$piscina->observaciones}}</td>
                             <td width="10px">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.piscinas.edit', $piscina)}}">Edit</a>

@@ -258,8 +258,13 @@ return [
             'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text' => 'hotels',
+            'text' => 'hotels x',
             'route'  => 'admin.hoteles.index',
+            'icon' => 'fas fa-fw fa-hotel',
+        ],
+        [
+            'text' => 'hotels',
+            'route'  => 'admin.centros.index',
             'icon' => 'fas fa-fw fa-hotel',
         ],
         [
@@ -311,6 +316,11 @@ return [
             ],
         ],
         ['header' => 'labels'],
+        [
+            'text' => 'calendar',
+            'route'  => 'admin.dias.index',
+            'icon' => 'fas fa-fw fa-calendar-alt',
+        ],
         [
             'text'       => 'important',
             'icon_color' => 'red',
@@ -405,6 +415,16 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                ],
+            ],
+        ],
+        'Fullcalendar' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/fullcalendar/locales-all.js',
                 ],
             ],
         ],

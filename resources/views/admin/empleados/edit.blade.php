@@ -120,7 +120,7 @@
 
             <div class="form-group">
                 {!! Form::label('banco', 'Bank') !!}
-                {!! Form::text('banco', null, ['class' => 'form-control', 'placeholder' => "Introduce employee's bank"]) !!}
+                {!! Form::select('banco', ['CaixaBank' => 'CaixaBank', 'Bankia' => 'Bankia', 'BBVA' => 'BBVA', 'Banco Santander' => 'Banco Santander', 'Banco Sabadell' => 'Banco Sabadell'], null, ['class' => 'form-control', 'placeholder' => 'Select your bank...']) !!}
                 
                 @error('banco')
                     <span class="text-danger">{{$message}}</span>

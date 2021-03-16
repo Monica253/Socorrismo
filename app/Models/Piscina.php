@@ -20,7 +20,15 @@ class Piscina extends Model
 	const CREATED_AT = 'fecha_creacion';
     const UPDATED_AT = 'fecha_actualizacion';
 	
-	public function Hotel(){
+	/*public function Hotel(){
 		return $this->belongsTo(Hotel::class);
+	}*/
+
+	public function Centro(){
+		return $this->belongsTo(Centro::class);
+	}
+
+	public function DiasTrabajo(){
+		return $this->hasMany(DiasTrabajo::class);
 	}
 }

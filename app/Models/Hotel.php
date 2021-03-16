@@ -12,8 +12,8 @@ class Hotel extends Model
     protected $table="hoteles";
 	
 	protected $guarded=[];
-
-    public function getRouteKeyName(){
+	
+	public function getRouteKeyName(){
 		return "slug";
 	}
 

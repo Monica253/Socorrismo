@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Hotels List</h1>
+    <h1>Employees List</h1>
 @stop
 
 @section('content')
@@ -17,7 +17,7 @@
     <div class="card">
 
         <div class="card-header">
-            <a class="btn btn-success btn-sm" href="{{route('admin.hoteles.create')}}">Create Hotel</a>
+            <a class="btn btn-success btn-sm" href="{{route('admin.hoteles.create')}}">Create Employee</a>
         </div>
 
         <div class="card-body">
@@ -44,7 +44,6 @@
                                 </form>
                             </td>
                         </tr>
-                        dd($hotel);
                     @endforeach
                 </tbody>
             </table>

@@ -17,11 +17,11 @@ class CreatePiscinasTable extends Migration
             $table->bigIncrements('id');
 			$table->string('nombre', 50)->unique()->nullable();
             $table->string('slug', 55)->nullable();
-			$table->foreignId('hotel_id')->unsigned()->index();
+			$table->foreignId('centro_id')->unsigned()->index();
 			$table->string('observaciones', 100)->nullable();
 			$table->timestamp('fecha_creacion')->useCurrent()->nullable();
             $table->timestamp('fecha_actualizacion')->useCurrent()->nullable();
-			$table->foreign('hotel_id')->references('id')->on('hoteles')
+			$table->foreign('centro_id')->references('id')->on('centros')
 				->onDelete('cascade');
         });
     }

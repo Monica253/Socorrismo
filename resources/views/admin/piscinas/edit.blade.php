@@ -29,10 +29,10 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('hotel_id', 'Hotel id') !!}
-                    {!! Form::text('hotel_id', null, ['class' => 'form-control', 'placeholder' => "Introduce Hotel's name"]) !!}
+                    {!! Form::label('centro_id', 'Hotel id') !!}
+                    {!! Form::text('centro_id', null, ['class' => 'form-control', 'placeholder' => "Introduce Hotel's name"]) !!}
                     
-                    @error('hotel_id')
+                    @error('centro_id')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
 

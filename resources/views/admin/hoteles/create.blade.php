@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Create Hotel</h1>
+    <h1>Create Employee</h1>
 @stop
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="form-group">
                     {!! Form::label('nombre', 'Name') !!}
-                    {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => "Introduce Hotel's name"]) !!}
+                    {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => "Introduce employee's name"]) !!}
                     
                     @error('nombre')
                         <span class="text-danger">{{$message}}</span>
@@ -23,7 +23,7 @@
 
                 <div class="form-group">
                     {!! Form::label('slug', 'Slug') !!}
-                    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => "Hotel's slug", 'readonly']) !!}
+                    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => "Employee's slug", 'readonly']) !!}
                 
                     @error('slug')
                         <span class="text-danger">{{$message}}</span>
@@ -31,7 +31,7 @@
 
                 </div>
 
-                {!! Form::submit('Create Hotel', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Create Employee', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>

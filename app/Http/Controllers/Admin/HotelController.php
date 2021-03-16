@@ -44,7 +44,7 @@ class HotelController extends Controller
         ]);
 
         $hotel = Hotel::create($request->all());
-        
+
         return redirect()->route('admin.hoteles.edit', $hotel)->with('info', 'Employee added successfully');
     }
 
@@ -67,7 +67,6 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        dd($hotel);
         return view('admin.hoteles.edit', compact('hotel'));
     }
 
