@@ -33,8 +33,6 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Hotel</th>
-                        <th>Remarks</th>
-                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -44,14 +42,13 @@
                             <td>{{$piscina->id}}</td>
                             <td>{{$piscina->nombre}}</td>
                             <td>{{$piscina->centro->nombre}}</td>
-                            <td>{{$piscina->observaciones}}</td>
-                            <td width="10px">
+                            <td>
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.piscinas.show', $piscina)}}"><i class="fas fa-eye"></i></a>
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.piscinas.edit', $piscina)}}">Edit</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.piscinas.edit', $piscina)}}"><i class="fas fa-edit"></i></a>
                                 <form action="{{route('admin.piscinas.destroy', $piscina)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -63,6 +60,7 @@
 @stop
 
 @section('js')
+    <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
@@ -72,5 +70,11 @@
             responsive: true,
             autoWidth: false
         });
+
+        ClassicEditor
+            .create( document.querySelector( '#observaciones' ) )
+            .catch( error => {
+                console.error( error );
+            });
     </script>
 @endsection

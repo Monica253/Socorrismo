@@ -17,6 +17,7 @@ class CreateCentrosTable extends Migration
             $table->bigIncrements('id');
 			$table->string('nombre', 60)->unique()->nullable();
             $table->string('slug', 35)->nullable();
+            $table->string('file', 80)->nullable();
 			$table->string('cadena_hotelera', 60)->nullable();
 			$table->string('email', 40)->nullable();
 			$table->string('telefono', 16)->nullable();

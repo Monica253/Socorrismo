@@ -34,13 +34,13 @@
                             <td>{{$hotel->id}}</td>
                             <td>{{$hotel->nombre}}</td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.hoteles.edit', $hotel)}}">Edit</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.hoteles.edit', $hotel)}}"><i class="fas fa-edit"></i></a>
                             </td>
                             <td width="10px">
                                 <form action="{{route('admin.hoteles.destroy', $hotel)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

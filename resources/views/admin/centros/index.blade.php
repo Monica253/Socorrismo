@@ -52,11 +52,11 @@
                             <td>{{$centro->horarios}}</td>
                             <td>
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.centros.show', $centro)}}"><i class="fas fa-eye"></i></a>
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.centros.edit', $centro)}}">Edit</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.centros.edit', $centro)}}"><i class="fas fa-edit"></i></a>
                                 <form action="{{route('admin.centros.destroy', $centro)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

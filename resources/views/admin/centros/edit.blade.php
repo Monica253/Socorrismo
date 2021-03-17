@@ -6,6 +6,21 @@
     <h1>Edit Hotel</h1>
 @stop
 
+@section('css')
+    <style>
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+@endsection
+
 @section('content')
 
     @if (session('info'))
@@ -66,6 +81,20 @@
                     <span class="text-danger">{{$message}}</span>
                 @enderror
 
+            </div>
+
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        {!! Form::label('file', 'Photo') !!}
+                        {!! Form::file('file', ['class' => 'form-control-file']) !!}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="image-wrapper">
+                        <img id="picture" src="{{Storage::url($centro->image->url)}}" alt="">
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">

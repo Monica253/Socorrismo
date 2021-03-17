@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Image;
 
 class Piscina extends Model
 {
@@ -30,5 +31,10 @@ class Piscina extends Model
 
 	public function DiasTrabajo(){
 		return $this->hasMany(DiasTrabajo::class);
+	}
+
+	//Relación uno a uno polimórfica
+	public function image(){
+		return $this->morphOne(Image::class, 'imageable');
 	}
 }

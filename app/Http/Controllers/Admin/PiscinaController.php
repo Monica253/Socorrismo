@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Piscina;
 use App\Models\Centro;
 
+use Illuminate\Support\Facades\Storage;
+
 class PiscinaController extends Controller
 {
 
@@ -48,6 +50,14 @@ class PiscinaController extends Controller
         ]);
 
         $piscina = Piscina::create($request->all());
+
+        if($request->file('file')){
+            $url = Storage::put('piscinas', $request->file('file'));
+
+            $piscina->image()->create([
+                'url' => $url
+            ]);
+        }
 
         return redirect()->route('admin.piscinas.edit', $piscina)->with('info', 'Pool added successfully');
     }

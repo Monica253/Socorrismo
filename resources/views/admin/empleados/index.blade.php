@@ -50,11 +50,11 @@
                             <td>{{$empleado->dni}}</td>
                             <td>
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.empleados.show', $empleado)}}"><i class="fas fa-eye"></i></a>
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.empleados.edit', $empleado)}}">Edit</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.empleados.edit', $empleado)}}"><i class="fas fa-user-edit"></i></a>
                                 <form action="{{route('admin.empleados.destroy', $empleado)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-user-times"></i></button>
                                 </form>
                             </td>
                         </tr>

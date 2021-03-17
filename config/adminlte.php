@@ -234,13 +234,13 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
+        /*[
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
-        ],
+        ],*/
         ['header' => 'ADMINISTRATOR'],
         /*[
             'text' => 'profile',
@@ -265,33 +265,19 @@ return [
         [
             'text' => 'pools',
             'route'  => 'admin.piscinas.index',
+            'icon_color' => 'blue',
             'icon' => 'fas fa-fw fa-swimming-pool',
         ],
-        [
+        /*[
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
-        ['header' => 'labels'],
+        ],*/
+        ['header' => 'utilities'],
         [
             'text' => 'calendar',
             'route'  => 'admin.dias.index',
             'icon' => 'fas fa-fw fa-calendar-alt',
-        ],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
         ],
     ],
 

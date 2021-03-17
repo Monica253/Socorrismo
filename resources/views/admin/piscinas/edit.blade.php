@@ -6,6 +6,21 @@
     <h1>Edit Pool</h1>
 @stop
 
+@section('css')
+    <style>
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+@endsection
+
 @section('content')
 
     @if (session('info'))
@@ -38,6 +53,20 @@
 
                 </div>
 
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            {!! Form::label('file', 'Photo') !!}
+                            {!! Form::file('file', ['class' => 'form-control-file']) !!}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="image-wrapper">
+                            <img id="picture" src="{{Storage::url($piscina->image->url)}}" alt="">
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     {!! Form::label('observaciones', 'Remarks') !!}
                     {!! Form::textarea('observaciones', null, ['class' => 'form-control', 'placeholder' => "Introduce Pool's remarks"]) !!}
@@ -67,6 +96,7 @@
 
 @section('js')
     
+    <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
 
     <script>
@@ -77,6 +107,12 @@
                 space: '-'
             });
         });
+
+        ClassicEditor
+            .create( document.querySelector( '#observaciones' ) )
+            .catch( error => {
+                console.error( error );
+            });
     </script>
 
 @endsection

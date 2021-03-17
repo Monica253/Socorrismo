@@ -54,7 +54,7 @@
                                 <form action="{{route('admin.encargados.destroy', $encargado)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-user-times"></i></button>
                                 </form>
                             </td>
                         </tr>

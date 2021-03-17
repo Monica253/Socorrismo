@@ -6,15 +6,33 @@
     <h1>Details Hotel</h1>
 @stop
 
+@section('css')
+    <style>
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 20%;
+            width: 40%;
+            float: right;
+        }
+
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div class="card">
         <div class="card-header"><b>{{$centro->nombre}}</b></div>
         <div class="card-body">
-            <div class="image-wraper">
+            <div class="image-wrapper">
                 @if($centro->image)
-                    <img class="float-right w-full h-72 object-cover object-center" src="{{Storage::url($centro->image->url)}}" alt="">
+                    <img class="float-right object-cover object-center" src="{{Storage::url($centro->image->url)}}" alt="">
                 @else
-                    <img class="float-right w-50 object-cover object-center" src="https://yaiza.es/wp-content/uploads/2012/09/Princesa-Yaiza-entrada-web.-jpg.jpg" alt="">
+                    <img class="float-right object-cover object-center" src="https://yaiza.es/wp-content/uploads/2012/09/Princesa-Yaiza-entrada-web.-jpg.jpg" alt="">
                 @endif
             </div>
             <div class="float-left">
@@ -31,22 +49,6 @@
         <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
     </div>
 @stop
-
-@section('css')
-    <style>
-        .image-wrapper{
-            position: relative;
-            padding-bottom: 56.25%;
-        }
-
-        .image-wrapper img{
-            position: absolute;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-@endsection
 
 @section('js')
     <script type='text/javascript'

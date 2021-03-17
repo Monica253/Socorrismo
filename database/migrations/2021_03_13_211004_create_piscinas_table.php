@@ -17,6 +17,7 @@ class CreatePiscinasTable extends Migration
             $table->bigIncrements('id');
 			$table->string('nombre', 50)->unique()->nullable();
             $table->string('slug', 55)->nullable();
+            $table->string('file', 80)->nullable();
 			$table->foreignId('centro_id')->unsigned()->index();
 			$table->string('observaciones', 100)->nullable();
 			$table->timestamp('fecha_creacion')->useCurrent()->nullable();
