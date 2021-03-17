@@ -2,6 +2,12 @@
 
 @section('title', 'Dashboard')
 
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
+@endsection
+
 @section('content_header')
     <h1>Employees List</h1>
 @stop
@@ -21,7 +27,7 @@
         </div>
 
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped" id="empleados">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -30,6 +36,7 @@
                         <th>Phone Number</th>
                         <th>Email</th>
                         <th>Id Number</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,10 +48,9 @@
                             <td>{{$empleado->telefono}}</td>
                             <td>{{$empleado->email}}</td>
                             <td>{{$empleado->dni}}</td>
-                            <td width="10px">
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.empleados.show', $empleado)}}"><i class="fas fa-eye"></i></a>
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.empleados.edit', $empleado)}}">Edit</a>
-                            </td>
-                            <td width="10px">
                                 <form action="{{route('admin.empleados.destroy', $empleado)}}" method="POST">
                                     @csrf
                                     @method('delete')
@@ -58,3 +64,16 @@
         </div>
     </div>
 @stop
+
+@section('js')
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $('#empleados').DataTable({
+            responsive: true,
+            autoWidth: false
+        });
+    </script>
+@endsection

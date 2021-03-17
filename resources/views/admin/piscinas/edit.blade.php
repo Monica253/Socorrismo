@@ -29,8 +29,8 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('centro_id', 'Hotel id') !!}
-                    {!! Form::text('centro_id', null, ['class' => 'form-control', 'placeholder' => "Introduce Hotel's name"]) !!}
+                    {!! Form::label('centro_id', 'Hotel') !!}
+                    {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
                     
                     @error('centro_id')
                         <span class="text-danger">{{$message}}</span>

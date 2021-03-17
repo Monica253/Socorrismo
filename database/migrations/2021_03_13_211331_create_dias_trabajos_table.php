@@ -17,14 +17,14 @@ class CreateDiasTrabajosTable extends Migration
             $table->increments('id');
 			$table->foreignId('empleado_id')->unsigned()->index();
             $table->foreignId('encargado_id')->unsigned()->index()->nullable();
-            $table->foreignId('hotel_id')->unsigned()->index();
+            $table->foreignId('centro_id')->unsigned()->index();
             $table->foreignId('piscina_id')->unsigned()->index();
 			$table->date('fecha');
             $table->foreign('empleado_id')->references('id')->on('empleados')
 				->onDelete('cascade');
 			$table->foreign('encargado_id')->references('id')->on('encargados')
 				->onDelete('cascade');
-			$table->foreign('hotel_id')->references('id')->on('hoteles')
+			$table->foreign('centro_id')->references('id')->on('centros')
 				->onDelete('cascade');
             $table->foreign('piscina_id')->references('id')->on('piscinas')
 				->onDelete('cascade');

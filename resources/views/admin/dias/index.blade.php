@@ -5,7 +5,7 @@
 @section('plugins.Fullcalendar', true)
 
 @section('content_header')
-    <h1>Calendar</h1>
+    <h1>Calendar</h1> <!--Vista que se está mostrando actualmente de calendario-->
 @stop
 
 @section('content')

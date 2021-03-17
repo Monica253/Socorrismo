@@ -23,4 +23,13 @@ class Centro extends Model
 	public function DiasTrabajo(){
 		return $this->hasMany(DiasTrabajo::class);
 	}
+
+	public function Piscina(){
+		return $this->hasMany(Piscina::class);
+	}
+
+	//Relación uno a uno polimórfica
+	public function image(){
+		return $this->morphOne(Image::class, 'imageable');
+	}
 }

@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Piscina;
+use App\Models\Centro;
 
 class PiscinaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +29,9 @@ class PiscinaController extends Controller
      */
     public function create()
     {
-        return view('admin.piscinas.create');
+        $centros = Centro::pluck('nombre', 'id');
+
+        return view('admin.piscinas.create', compact('centros'));
     }
 
     /**
@@ -67,7 +71,9 @@ class PiscinaController extends Controller
      */
     public function edit(Piscina $piscina)
     {
-        return view('admin.piscinas.edit', compact('piscina'));
+        $centros = Centro::pluck('nombre', 'id');
+
+        return view('admin.piscinas.edit', compact('piscina', 'centros'));
     }
 
     /**

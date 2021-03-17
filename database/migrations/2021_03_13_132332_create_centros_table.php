@@ -15,12 +15,12 @@ class CreateCentrosTable extends Migration
     {
         Schema::create('centros', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->string('nombre', 50)->unique()->nullable();
+			$table->string('nombre', 60)->unique()->nullable();
             $table->string('slug', 35)->nullable();
-			$table->string('cadena_hotelera', 50)->nullable();
+			$table->string('cadena_hotelera', 60)->nullable();
 			$table->string('email', 40)->nullable();
 			$table->string('telefono', 16)->nullable();
-			$table->string('direccion', 50)->nullable();
+			$table->string('direccion', 100)->nullable();
 			$table->Float('latitud', 10, 7)->nullable();
             $table->Float('longitud', 11, 7)->nullable();
 			$table->string('horarios', 20)->nullable();

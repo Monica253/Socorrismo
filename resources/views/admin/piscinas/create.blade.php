@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.piscinas.store']) !!}
+            {!! Form::open(['route' => 'admin.piscinas.store', 'autocomplete' => 'off']) !!}
 
                 <div class="form-group">
                     {!! Form::label('nombre', 'Name') !!}
@@ -22,8 +22,8 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('centro_id', 'Hotel id') !!}
-                    {!! Form::text('centro_id', null, ['class' => 'form-control', 'placeholder' => "Introduce Hotel's name"]) !!}
+                    {!! Form::label('centro_id', 'Hotel') !!}
+                    {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
                     
                     @error('centro_id')
                         <span class="text-danger">{{$message}}</span>
@@ -60,6 +60,7 @@
 
 @section('js')
     
+    <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
 
     <script>
@@ -70,6 +71,12 @@
                 space: '-'
             });
         });
+
+        ClassicEditor
+            .create( document.querySelector( '#observaciones' ) )
+            .catch( error => {
+                console.error( error );
+            });
     </script>
 
 @endsection

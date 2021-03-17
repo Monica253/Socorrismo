@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Centro;
 
+use Illuminate\Support\Facades\Storage;
+
 class CentroController extends Controller
 {
     /**
@@ -38,6 +40,9 @@ class CentroController extends Controller
      */
     public function store(Request $request)
     {
+
+        //return Storage::put('images', $request->file('file'));
+
         $request->validate([
             'nombre' => 'required',
             'slug' => 'required|unique:centros'
@@ -45,7 +50,15 @@ class CentroController extends Controller
 
         $centro = Centro::create($request->all());
 
-        return redirect()->route('admin.centros.edit', $centro)->with('info', 'Employee added successfully');
+        if($request->file('file')){
+            $url = Storage::put('centros', $request->file('file'));
+
+            $centro->image()->create([
+                'url' => $url
+            ]);
+        }
+
+        return redirect()->route('admin.centros.edit', $centro)->with('info', 'Hotel added successfully');
     }
 
     /**
