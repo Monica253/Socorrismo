@@ -2,124 +2,140 @@
 
 @section('title', 'Dashboard')
 
+@section('plugins.Fullcalendar', true)
+
 @section('content_header')
-    <h1>Create Center</h1>
+    <h1>Calendar</h1>
 @stop
 
+@section('css')
+<link rel="stylesheet" href='https://fullcalendar.io/releases/core/4.1.0/main.min.css'/>
+<link rel="stylesheet" href='https://fullcalendar.io/releases/daygrid/4.1.0/main.min.css'/>
+<link rel="stylesheet" href='https://fullcalendar.io/releases/timegrid/4.1.0/main.min.css'/>
+<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css'/>
+@endsection
+
 @section('content')
-    <div class="card">
-        <div class="card-body">
-            {!! Form::open(['route' => 'admin.centros.store']) !!}
 
-                <div class="form-group">
-                    {!! Form::label('nombre', 'Name') !!}
-                    {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's name"]) !!}
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                {!! Form::open(['route' => 'admin.dias.store', 'autocomplete' => 'off']) !!}
+    
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                {!! Form::label('encargado_id', 'Manager') !!}
+                                {!! Form::select('encargado_id', $encargados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                
+                                @error('encargado_id')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror
+        
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                {!! Form::label('empleado_id', 'Employee') !!}
+                                {!! Form::select('empleado_id', $empleados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                
+                                @error('empleado_id')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror
+        
+                            </div>
+                        </div>
+                    </div>
                     
-                    @error('nombre')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                {!! Form::label('centro_id', 'Hotel') !!}
+                                {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                
+                                @error('centro_id')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror
+        
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                {!! Form::label('piscina_id', 'Pool') !!}
+                                {!! Form::select('piscina_id', $piscinas, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                
+                                @error('piscina_id')
+                                    <span class="text-danger">{{$message}}</span>
+                                @enderror
+        
+                            </div>
+                        </div>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        {!! Form::label('horarios', 'Timetable') !!}
+                        {!! Form::select('horarios', ['10:00 - 18:00' => '10:00 - 18:00', '10:00 - 19:00' => '10:00 - 19:00', '11:00 - 19:00' => '11:00 - 19:00'], null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's timetable"]) !!}
+                        
+                        @error('horarios')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+        
+                    </div>
 
-                <div class="form-group">
-                    {!! Form::label('cadena_hotelera', 'Hotel Company') !!}
-                    {!! Form::text('cadena_hotelera', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's company"]) !!}
-                    
-                    @error('cadena_hotelera')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
+                    <div class="row"> 
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="fromDate">From:</label>
+                            <input type="date" class="form-control" placeholder="Enter from date" id="fromDate">
+                        </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="toDate">To:</label>
+                            <input type="date" class="form-control" id="toDate">
+                        </div>
+                        </div>
+        
+                    </div>
     
-                </div>
-    
-                <div class="form-group">
-                    {!! Form::label('email', 'Email') !!}
-                    {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's email"]) !!}
-                    
-                    @error('email')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-    
-                </div>
-    
-                <div class="form-group">
-                    {!! Form::label('telefono', 'Phone Number') !!}
-                    {!! Form::text('telefono', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's phone number"]) !!}
-                    
-                    @error('telefono')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-    
-                </div>
-    
-                <div class="form-group">
-                    {!! Form::label('direccion', 'Address') !!}
-                    {!! Form::text('direccion', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's address"]) !!}
-                    
-                    @error('direccion')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-    
-                </div>
+                {!! Form::submit('Create laboral day', ['class' => 'btn btn-success']) !!}
 
-                <div class="form-group">
-                    {!! Form::label('latitud', 'Latitude') !!}
-                    {!! Form::text('latitud', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's latitude"]) !!}
-                    
-                    @error('latitud')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-    
+                {!! Form::close() !!}
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="card-body">
+                <div id="calendar">
                 </div>
-
-                <div class="form-group">
-                    {!! Form::label('longitud', 'Longitude') !!}
-                    {!! Form::text('longitud', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's longitude"]) !!}
-                    
-                    @error('longitud')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-    
-                </div>
-    
-                <div class="form-group">
-                    {!! Form::label('horarios', 'Timetable') !!}
-                    {!! Form::text('horarios', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's timetable"]) !!}
-                    
-                    @error('horarios')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-    
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('slug', 'Slug') !!}
-                    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => "hotel's slug", 'readonly']) !!}
-                
-                    @error('slug')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-
-                </div>
-
-                {!! Form::submit('Create hotel', ['class' => 'btn btn-primary']) !!}
-
-            {!! Form::close() !!}
+            </div>
         </div>
     </div>
 @stop
 
 @section('js')
-    
-    <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
-
+@parent
+    <script src='https://fullcalendar.io/releases/core/4.1.0/main.min.js'></script>
+    <script src='https://fullcalendar.io/releases/interaction/4.1.0/main.min.js'></script>
+    <script src='https://fullcalendar.io/releases/daygrid/4.1.0/main.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
     <script>
-        $(document).ready( function() {
-            $("#nombre").stringToSlug({
-                setEvents: 'keyup keydown blur',
-                getPut: '#slug',
-                space: '-'
+        $(document).ready(function() {	
+            $('#calendar').fullCalendar({
+                editable: true,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                navLinks: true, // can click day/week names to navigate views
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
             });
         });
-    </script>
-
-@endsection
+      </script>
+@stop

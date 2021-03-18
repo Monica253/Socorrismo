@@ -5,11 +5,14 @@
 @section('plugins.Fullcalendar', true)
 
 @section('content_header')
-    <h1>Calendario</h1>
+    <h1>Calendar</h1>
 @stop
 
 @section('css')
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+<link rel="stylesheet" href='https://fullcalendar.io/releases/core/4.1.0/main.min.css'/>
+<link rel="stylesheet" href='https://fullcalendar.io/releases/daygrid/4.1.0/main.min.css'/>
+<link rel="stylesheet" href='https://fullcalendar.io/releases/timegrid/4.1.0/main.min.css'/>
+<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css'/>
 @endsection
 
 @section('content')
@@ -76,19 +79,10 @@
                         @error('horarios')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('work_date', 'Date') !!}
-                        {!! Form::date('work_date', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
-                        
-                        @error('work_date')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
         
                     </div>
 
-                    <!--<div class="row"> 
+                    <div class="row"> 
                         <div class="col-md-6">
                         <div class="form-group">
                             <label for="fromDate">From:</label>
@@ -103,7 +97,7 @@
                         </div>
                         </div>
         
-                    </div>-->
+                    </div>
                     
                 {!! Form::submit('Create laboral day', ['class' => 'btn btn-primary']) !!}
 
@@ -124,30 +118,23 @@
 
 @section('js')
 @parent
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src='https://fullcalendar.io/releases/core/4.1.0/main.min.js'></script>
+    <script src='https://fullcalendar.io/releases/interaction/4.1.0/main.min.js'></script>
+    <script src='https://fullcalendar.io/releases/daygrid/4.1.0/main.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
     <script>
-        $(document).ready(function() {
-            // page is now ready, initialize the calendar...
+        $(document).ready(function() {	
             $('#calendar').fullCalendar({
-                // put your options and callbacks here
                 editable: true,
-                header:{
-                    left:'prev,next today',
-                    center:'title',
-                    right:'month,agendaWeek,agendaDay'
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
                 },
-                events : [
-                    @foreach($dias as $dia)
-                    {
-                        title : '{{ $dia->empleado->nombre }}',
-                        start : '{{ $dia->work_date }}',
-                        url : '{{ route('admin.dias.edit', $dia->id) }}'
-                    },
-                    @endforeach
-                ]
-            })
+                navLinks: true, // can click day/week names to navigate views
+                eventLimit: true, // allow "more" link when too many events
+            });
         });
-    </script>
+      </script>
 @stop

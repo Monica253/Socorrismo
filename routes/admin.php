@@ -14,4 +14,4 @@ Route::resource('encargados', EncargadoController::class)->names('admin.encargad
 Route::resource('empleados', EmpleadoController::class)->names('admin.empleados');
 Route::resource('centros', CentroController::class)->names('admin.centros');
 Route::resource('piscinas', PiscinaController::class)->names('admin.piscinas');
-Route::resource('calendar', DiasTrabajoController::class)->names('admin.dias');
+Route::resource('dias', DiasTrabajoController::class)->names('admin.dias');

@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\DiasTrabajo;
+use App\Models\Encargado;
+use App\Models\Empleado;
+use App\Models\Centro;
+use App\Models\Piscina;
 
 class DiasTrabajoController extends Controller
 {
@@ -16,8 +20,14 @@ class DiasTrabajoController extends Controller
      */
     public function index()
     {
+        $encargados = Encargado::pluck('nombre', 'id');
+        $empleados = Empleado::pluck('nombre', 'id');
+        $centros = Centro::pluck('nombre', 'id');
+        $piscinas = Piscina::pluck('nombre', 'id');
+
         $dias = DiasTrabajo::all();
-        return view('admin.dias.index', compact('dias'));
+
+        return view('admin.dias.index', compact('dias', 'encargados', 'empleados', 'centros', 'piscinas'));
     }
 
     /**
@@ -27,7 +37,12 @@ class DiasTrabajoController extends Controller
      */
     public function create()
     {
-        return view('admin.dias.create');
+        $encargados = Encargado::pluck('nombre', 'id');
+        $empleados = Empleado::pluck('nombre', 'id');
+        $centros = Centro::pluck('nombre', 'id');
+        $piscinas = Piscina::pluck('nombre', 'id');
+
+        return view('admin.dias.create', compact('encargados', 'empleados', 'centros', 'piscinas'));
     }
 
     /**
@@ -40,7 +55,8 @@ class DiasTrabajoController extends Controller
     {
         $dia = DiasTrabajo::create($request->all());
 
-        return redirect()->route('admin.dias.edit', $dia)->with('info', 'Employee added successfully');
+        return redirect()->route('admin.dias.index')->with('info', 'Laboral day added successfully');
+        //return redirect()->route('admin.dias.edit', $dia)->with('info', 'Laboral day added successfully');
     }
 
     /**
@@ -62,7 +78,15 @@ class DiasTrabajoController extends Controller
      */
     public function edit(DiasTrabajo $dia)
     {
-        return view('admin.dias.edit', compact('dia'));
+        $encargados = Encargado::pluck('nombre', 'id');
+        $empleados = Empleado::pluck('nombre', 'id');
+        $centros = Centro::pluck('nombre', 'id');
+        $piscinas = Piscina::pluck('nombre', 'id');
+
+        $dias = DiasTrabajo::all();
+
+        return view('admin.dias.edit', $dia, compact('dias', 'dia', 'encargados', 'empleados','centros', 'piscinas'));
+        //return view('admin.dias.edit', compact('dia'));
     }
 
     /**
