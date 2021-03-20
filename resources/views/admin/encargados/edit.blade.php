@@ -39,10 +39,10 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('f_nacimiento', 'Birth Date') !!}
-                {!! Form::date('f_nacimiento', null, ['class' => 'form-control', 'placeholder' => "Introduce employee's birth date"]) !!}
+                {!! Form::label('fecha_nacimiento', 'Birth Date') !!}
+                {!! Form::date('fecha_nacimiento', null, ['class' => 'form-control', 'placeholder' => "Introduce employee's birth date"]) !!}
                 
-                @error('f_nacimiento')
+                @error('fecha_nacimiento')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
 

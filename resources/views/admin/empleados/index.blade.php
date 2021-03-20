@@ -46,7 +46,7 @@
                         <tr>
                             <td>{{$empleado->id}}</td>
                             <td>{{$empleado->nombre}}</td>
-                            <td>{{$empleado->f_nacimiento}}</td>
+                            <td>{{$empleado->fecha_nacimiento}}</td>
                             <td>{{$empleado->telefono}}</td>
                             <td>{{$empleado->email}}</td>
                             <td>{{$empleado->dni}}</td>

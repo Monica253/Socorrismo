@@ -36,7 +36,7 @@
                     <tr>
                         <td class="border px-4 py-2">{{ $empleado->id }}</td>
                         <td class="border px-4 py-2">{{ $empleado->nombre }} {{ $empleado->apellidos }}</td>
-                        <td class="border px-4 py-2">{{ $empleado->f_nacimiento }}</td>
+                        <td class="border px-4 py-2">{{ $empleado->fecha_nacimiento }}</td>
                         <td class="border px-4 py-2">{{ $empleado->direccion }}</td>
                         <td class="border px-4 py-2">{{ $empleado->telefono }}</td>
                         <td class="border px-4 py-2">{{ $empleado->email }}</td>

@@ -44,7 +44,7 @@
                         <tr>
                             <td>{{$encargado->id}}</td>
                             <td>{{$encargado->nombre}}</td>
-                            <td>{{$encargado->f_nacimiento}}</td>
+                            <td>{{$encargado->fecha_nacimiento}}</td>
                             <td>{{$encargado->telefono}}</td>
                             <td>{{$encargado->email}}</td>
                             <td>{{$encargado->dni}}</td>

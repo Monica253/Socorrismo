@@ -20,7 +20,7 @@
                 {!! Form::model($dia, ['route' => ['admin.dias.update', $dia], 'method' => 'put']) !!}
     
                     <div class="form-row">
-                        <div class="col">
+                        <!--<div class="col">
                             <div class="form-group">
                                 {!! Form::label('encargado_id', 'Manager') !!}
                                 {!! Form::select('encargado_id', $encargados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
@@ -30,7 +30,7 @@
                                 @enderror
         
                             </div>
-                        </div>
+                        </div>-->
                         <div class="col">
                             <div class="form-group">
                                 {!! Form::label('empleado_id', 'Employee') !!}
@@ -78,13 +78,25 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
-                        {!! Form::label('work_date', 'Date') !!}
-                        {!! Form::date('work_date', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
+                    <!--<div class="form-group">
+                        {!! Form::label('fecha_trabajo', 'Date') !!}
+                        {!! Form::date('fecha_trabajo', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
                         
-                        @error('work_date')
+                        @error('fecha_trabajo')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
+        
+                    </div>-->
+
+                    <div class="form-group">
+                        {!! Form::label('fecha_inicio', 'From') !!}
+                        {!! Form::date('fecha_inicio', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
+
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('fecha_fin', 'To') !!}
+                        {!! Form::date('fecha_fin', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
         
                     </div>
                     
@@ -93,5 +105,53 @@
                 {!! Form::close() !!}
             </div>
         </div>
+
+        <div class="row">
+            <div class="card-body">
+                <div id="calendar">
+                </div>
+            </div>
+        </div>
     </div>
+@stop
+
+@section('js')
+@parent
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+    <script>
+        $(document).ready(function() {
+            // page is now ready, initialize the calendar...
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+                editable: true,
+                themeSystem: "standard",
+                selectable: true,
+                header:{
+                    left:'prev,next today',
+                    center:'title',
+                    right:'month,listDay,listWeek,listYear'
+                },
+                buttonText: {
+                    month: 'Month',
+                    listDay: 'List day',
+                    listWeek: 'List week',
+                    listYear: 'List year'
+                },
+                events : [
+                    @foreach($dias as $dia)
+                    {
+                        title : '{{ $dia->empleado->nombre }} - {{ $dia->centro->nombre }} - {{ $dia->piscina->nombre }} - {{ $dia->centro->horarios }}',
+                        start : '{{ $dia->fecha_inicio }}',
+                        end : '{{ $dia->fecha_fin }}',
+                        url : '{{ route('admin.dias.edit', $dia->id) }}',
+                        textColor: 'black',
+                        color: '{{ $dia->empleado->color }}'
+                    },
+                    @endforeach
+                ]
+            })
+        });
+    </script>
 @stop

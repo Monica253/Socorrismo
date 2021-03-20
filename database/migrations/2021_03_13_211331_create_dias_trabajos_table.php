@@ -19,7 +19,8 @@ class CreateDiasTrabajosTable extends Migration
             $table->foreignId('encargado_id')->unsigned()->index()->nullable();
             $table->foreignId('centro_id')->unsigned()->index();
             $table->foreignId('piscina_id')->unsigned()->index();
-			$table->date('fecha');
+			$table->date('fecha_trabajo', 10);
+            $table->string('horarios', 20);
             $table->foreign('empleado_id')->references('id')->on('empleados')
 				->onDelete('cascade');
 			$table->foreign('encargado_id')->references('id')->on('encargados')

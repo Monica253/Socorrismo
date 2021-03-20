@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Image;
+use App\Models\Imagen;
 
 class Centro extends Model
 {
@@ -31,6 +31,6 @@ class Centro extends Model
 
 	//Relación uno a uno polimórfica
 	public function image(){
-		return $this->morphOne(Image::class, 'imageable');
+		return $this->morphOne(Imagen::class, 'imageable');
 	}
 }

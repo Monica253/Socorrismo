@@ -13,7 +13,7 @@
             <h5 class="card-title">Id Number</h5>          
             <p class="card-text">{{$empleado->dni}}</p>
             <h5 class="card-title">Birth Date</h5>
-            <p class="card-text">{{$empleado->f_nacimiento}}</p>
+            <p class="card-text">{{$empleado->fecha_nacimiento}}</p>
             <h5 class="card-title">Phone Number</h5>
             <p class="card-text">{{$empleado->telefono}}</p>
             <h5 class="card-title">Email</h5>

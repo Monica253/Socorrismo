@@ -29,11 +29,11 @@
         <div class="card-header"><b>{{$centro->nombre}}</b></div>
         <div class="card-body">
             <div class="image-wrapper">
-                @if($centro->image)
-                    <img class="float-right object-cover object-center" src="{{Storage::url($centro->image->url)}}" alt="">
+                @isset($centro->image)
+                    <img id="picture" class="float-right object-cover object-center" src="{{Storage::url($centro->image->url)}}" alt="">
                 @else
-                    <img class="float-right object-cover object-center" src="https://yaiza.es/wp-content/uploads/2012/09/Princesa-Yaiza-entrada-web.-jpg.jpg" alt="">
-                @endif
+                    <img id="picture" class="float-right object-cover object-center" src="{{asset('/imagenes/hotelFile.png')}}" alt="">
+                @endisset
             </div>
             <div class="float-left">
                 <h5 class="card-title">Hotel Company</h5>          

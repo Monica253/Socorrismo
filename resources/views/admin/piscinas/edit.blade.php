@@ -12,6 +12,9 @@
             position: relative;
             padding-bottom: 56.25%;
         }
+        #picture{
+            opacity: 0.5;
+        }
         .image-wrapper img{
             position: absolute;
             object-fit: cover;
@@ -22,70 +25,11 @@
 @endsection
 
 @section('content')
-
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{session('info')}}</strong>
-        </div>
-    @endif
-
     <div class="card">
         <div class="card-body">
-            {!! Form::model($piscina, ['route' => ['admin.piscinas.update', $piscina], 'method' => 'put']) !!}
+            {!! Form::model($piscina, ['route' => ['admin.piscinas.update', $piscina], 'autocomplete' => 'off', 'files' => true, 'method' => 'put']) !!}
 
-                <div class="form-group">
-                    {!! Form::label('nombre', 'Name') !!}
-                    {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => "Introduce pool's name"]) !!}
-                    
-                    @error('nombre')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('centro_id', 'Hotel') !!}
-                    {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
-                    
-                    @error('centro_id')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-
-                </div>
-
-                <div class="form-row">
-                    <div class="col">
-                        <div class="form-group">
-                            {!! Form::label('file', 'Photo') !!}
-                            {!! Form::file('file', ['class' => 'form-control-file']) !!}
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="image-wrapper">
-                            <img id="picture" src="{{Storage::url($piscina->image->url)}}" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('observaciones', 'Remarks') !!}
-                    {!! Form::textarea('observaciones', null, ['class' => 'form-control', 'placeholder' => "Introduce Pool's remarks"]) !!}
-                    
-                    @error('observaciones')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('slug', 'Slug') !!}
-                    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => "Pool's slug", 'readonly']) !!}
-                
-                    @error('slug')
-                        <span class="text-danger">{{$message}}</span>
-                    @enderror
-
-                </div>
+                @include('admin.piscinas.partials.form')
 
                 {!! Form::submit('Modify Pool', ['class' => 'btn btn-primary']) !!}
 
@@ -113,6 +57,21 @@
             .catch( error => {
                 console.error( error );
             });
+
+        //Cambiar imagen
+        document.getElementById("file").addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event){
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById("picture").setAttribute('src', event.target.result);
+                document.getElementById("picture").style.opacity = "1"; 
+            };
+
+            reader.readAsDataURL(file);
+        }
     </script>
 
 @endsection

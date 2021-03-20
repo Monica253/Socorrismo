@@ -45,7 +45,7 @@ class EmpleadoController extends Controller
 
         $empleado = Empleado::create($request->all());
 
-        return redirect()->route('admin.empleados.edit', $empleado)->with('info', 'Employee added successfully');
+        return redirect()->route('admin.empleados.index', $empleado)->with('info', 'Employee added successfully');
     }
 
     /**
@@ -86,7 +86,7 @@ class EmpleadoController extends Controller
 
         $empleado->update($request->all());
 
-        return redirect()->route('admin.empleados.edit', $empleado)->with('info', 'Employee updated successfully');
+        return redirect()->route('admin.empleados.index', $empleado)->with('info', 'Employee updated successfully');
     }
 
     /**

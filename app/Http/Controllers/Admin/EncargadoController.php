@@ -45,7 +45,7 @@ class EncargadoController extends Controller
 
         $encargado = Encargado::create($request->all());
 
-        return redirect()->route('admin.encargados.edit', $encargado)->with('info', 'Employee added successfully');
+        return redirect()->route('admin.encargados.index', $encargado)->with('info', 'Manager added successfully');
     }
 
     /**
@@ -86,7 +86,7 @@ class EncargadoController extends Controller
 
         $encargado->update($request->all());
 
-        return redirect()->route('admin.encargados.edit', $encargado)->with('info', 'Employee updated successfully');
+        return redirect()->route('admin.encargados.index', $encargado)->with('info', 'Manager modify successfully');
     }
 
     /**
@@ -99,6 +99,6 @@ class EncargadoController extends Controller
     {
         $encargado->delete();
 
-        return redirect()->route('admin.encargados.index')->with('info', 'Employee removed successfully');
+        return redirect()->route('admin.encargados.index')->with('info', 'Manager removed successfully');
     }
 }

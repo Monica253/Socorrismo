@@ -20,21 +20,21 @@
                 {!! Form::open(['route' => 'admin.dias.store', 'autocomplete' => 'off']) !!}
     
                     <div class="form-row">
-                        <div class="col">
+                        <!--<div class="col">
                             <div class="form-group">
                                 {!! Form::label('encargado_id', 'Manager') !!}
-                                {!! Form::select('encargado_id', $encargados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                {!! Form::select('encargado_id', $encargados, null, ['class' => 'form-control', 'placeholder' => "Select Manager's name"]) !!}
                                 
                                 @error('encargado_id')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
         
                             </div>
-                        </div>
+                        </div>-->
                         <div class="col">
                             <div class="form-group">
                                 {!! Form::label('empleado_id', 'Employee') !!}
-                                {!! Form::select('empleado_id', $empleados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                {!! Form::select('empleado_id', $empleados, null, ['class' => 'form-control', 'placeholder' => "Select Employee's name"]) !!}
                                 
                                 @error('empleado_id')
                                     <span class="text-danger">{{$message}}</span>
@@ -59,7 +59,7 @@
                         <div class="col">
                             <div class="form-group">
                                 {!! Form::label('piscina_id', 'Pool') !!}
-                                {!! Form::select('piscina_id', $piscinas, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                {!! Form::select('piscina_id', $piscinas, null, ['class' => 'form-control', 'placeholder' => "Select Pool's name"]) !!}
                                 
                                 @error('piscina_id')
                                     <span class="text-danger">{{$message}}</span>
@@ -78,32 +78,27 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
-                        {!! Form::label('work_date', 'Date') !!}
-                        {!! Form::date('work_date', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
+                    <!--<div class="form-group">
+                        {!! Form::label('fecha_trabajo', 'Date') !!}
+                        {!! Form::date('fecha_trabajo', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
                         
-                        @error('work_date')
+                        @error('fecha_trabajo')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
         
+                    </div>-->
+
+                    <div class="form-group">
+                        {!! Form::label('fecha_inicio', 'From') !!}
+                        {!! Form::date('fecha_inicio', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
+
                     </div>
 
-                    <!--<div class="row"> 
-                        <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="fromDate">From:</label>
-                            <input type="date" class="form-control" placeholder="Enter from date" id="fromDate">
-                        </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="toDate">To:</label>
-                            <input type="date" class="form-control" id="toDate">
-                        </div>
-                        </div>
+                    <div class="form-group">
+                        {!! Form::label('fecha_fin', 'To') !!}
+                        {!! Form::date('fecha_fin', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
         
-                    </div>-->
+                    </div>
                     
                 {!! Form::submit('Create laboral day', ['class' => 'btn btn-primary']) !!}
 
@@ -133,17 +128,28 @@
             $('#calendar').fullCalendar({
                 // put your options and callbacks here
                 editable: true,
+                themeSystem: "standard",
+                selectable: true,
                 header:{
                     left:'prev,next today',
                     center:'title',
-                    right:'month,agendaWeek,agendaDay'
+                    right:'month,listDay,listWeek,listYear'
+                },
+                buttonText: {
+                    month: 'Month',
+                    listDay: 'List day',
+                    listWeek: 'List week',
+                    listYear: 'List year'
                 },
                 events : [
                     @foreach($dias as $dia)
                     {
-                        title : '{{ $dia->empleado->nombre }}',
-                        start : '{{ $dia->work_date }}',
-                        url : '{{ route('admin.dias.edit', $dia->id) }}'
+                        title : '{{ $dia->empleado->nombre }} - {{ $dia->centro->nombre }} - {{ $dia->piscina->nombre }} - {{ $dia->centro->horarios }}',
+                        start : '{{ $dia->fecha_inicio }}',
+                        end : '{{ $dia->fecha_fin }}',
+                        url : '{{ route('admin.dias.edit', $dia->id) }}',
+                        textColor: 'black',
+                        color: '{{ $dia->empleado->color }}'
                     },
                     @endforeach
                 ]

@@ -58,7 +58,7 @@ class CentroController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.centros.edit', $centro)->with('info', 'Hotel added successfully');
+        return redirect()->route('admin.centros.index', $centro)->with('info', 'Hotel added successfully');
     }
 
     /**
@@ -69,6 +69,7 @@ class CentroController extends Controller
      */
     public function show(Centro $centro)
     {
+        //dd($centro->image());
         return view('admin.centros.show', compact('centro'));
     }
 
@@ -80,6 +81,7 @@ class CentroController extends Controller
      */
     public function edit(Centro $centro)
     {
+        //dd($centro);
         return view('admin.centros.edit', compact('centro'));
     }
 
@@ -92,14 +94,25 @@ class CentroController extends Controller
      */
     public function update(Request $request, Centro $centro)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'slug' => "required|unique:centros,slug,$centro->id"
-        ]);
-
         $centro->update($request->all());
 
-        return redirect()->route('admin.centros.edit', $centro)->with('info', 'Employee updated successfully');
+        if($request->file('file')){
+            $url = Storage::put('centros', $request->file('file'));
+
+            if($centro->image){
+                Storage::delete($centro->image->url);
+
+                $centro->image->update([
+                    'url' => $url
+                ]);
+            }else{
+                $centro->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+        return redirect()->route('admin.centros.index', $centro)->with('info', 'Hotel updated successfully');
     }
 
     /**
@@ -110,8 +123,12 @@ class CentroController extends Controller
      */
     public function destroy(Centro $centro)
     {
+        if($centro->image){
+            Storage::delete($centro->image->url);
+        }
+
         $centro->delete();
 
-        return redirect()->route('admin.centros.index')->with('info', 'Employee removed successfully');
+        return redirect()->route('admin.centros.index')->with('info', 'Hotel removed successfully');
     }
 }

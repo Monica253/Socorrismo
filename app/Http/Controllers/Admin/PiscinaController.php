@@ -59,7 +59,7 @@ class PiscinaController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.piscinas.edit', $piscina)->with('info', 'Pool added successfully');
+        return redirect()->route('admin.piscinas.index', $piscina)->with('info', 'Pool added successfully');
     }
 
     /**
@@ -95,14 +95,25 @@ class PiscinaController extends Controller
      */
     public function update(Request $request, Piscina $piscina)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'slug' => "required|unique:piscinas,slug,$piscina->id"
-        ]);
-
         $piscina->update($request->all());
 
-        return redirect()->route('admin.piscinas.edit', $piscina)->with('info', 'Pool updated successfully');
+        if($request->file('file')){
+            $url = Storage::put('piscinas', $request->file('file'));
+
+            if($piscina->image){
+                Storage::delete($piscina->image->url);
+
+                $piscina->image->update([
+                    'url' => $url
+                ]);
+            }else{
+                $piscina->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+        return redirect()->route('admin.piscinas.index', $piscina)->with('info', 'Pool updated successfully');
     }
 
     /**

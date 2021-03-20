@@ -15,7 +15,7 @@ class CreatePiscinasTable extends Migration
     {
         Schema::create('piscinas', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->string('nombre', 50)->unique()->nullable();
+			$table->string('nombre', 50);
             $table->string('slug', 55)->nullable();
             $table->string('file', 80)->nullable();
 			$table->foreignId('centro_id')->unsigned()->index();
