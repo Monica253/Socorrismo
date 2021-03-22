@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\CentroController;
 use App\Http\Controllers\Admin\DiasTrabajoController;
 use App\Http\Controllers\Admin\PiscinaController;
 
-Route::get('', [HomeController::class, 'index']);
+Route::get('', [HomeController::class, 'index'])->name('admin.home');
 Route::resource('encargados', EncargadoController::class)->names('admin.encargados');
 Route::resource('empleados', EmpleadoController::class)->names('admin.empleados');
 Route::resource('centros', CentroController::class)->names('admin.centros');

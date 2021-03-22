@@ -58,4 +58,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    public function DiasTrabajo(){
+		return $this->hasMany(DiasTrabajo::class);
+	}
+
+    //Relación muchos a muchos
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
 }

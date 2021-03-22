@@ -23,6 +23,7 @@ class EmpleadoFactory extends Factory
     {
         return [
             'nombre' => $this->faker->name(),
+            'slug' => Str::slug($name);
             'apellidos' => $this->faker->lastName(),
             'f_nacimiento' => $this->faker->date(),				//->format('Y-m-d')
 			'direccion' => $this->faker->streetAddress(),
