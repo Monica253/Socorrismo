@@ -13,6 +13,9 @@ use App\Models\Piscina;
 
 class DiasTrabajoController extends Controller
 {
+    public function __construct(){
+        $this->middleware('can:admin.home');
+    }
     /**
      * Display a listing of the resource.
      *

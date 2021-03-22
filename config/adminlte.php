@@ -248,25 +248,41 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],*/
         [
-            'text' => 'managers',
+            'text' => 'Users',
+            'route'  => 'admin.users.index',
+            'icon' => 'fas fa-fw fa-user-tie',
+            'can' => 'admin.home'
+        ],
+        [
+            'text' => 'Roles list',
+            'route'  => 'admin.roles.index',
+            'icon' => 'fas fa-fw fa-user-tie',
+            'can' => 'admin.home'
+        ],
+        [
+            'text' => 'Managers',
             'route'  => 'admin.encargados.index',
             'icon' => 'fas fa-fw fa-user-tie',
+            'can' => 'admin.home'
         ],
         [
-            'text' => 'employees',
+            'text' => 'Employees',
             'route'  => 'admin.empleados.index',
             'icon' => 'fas fa-fw fa-users',
+            'can' => 'admin.home'
         ],
         [
-            'text' => 'hotels',
+            'text' => 'Hotels',
             'route'  => 'admin.centros.index',
             'icon' => 'fas fa-fw fa-hotel',
+            'can' => 'admin.home'
         ],
         [
-            'text' => 'pools',
+            'text' => 'Pools',
             'route'  => 'admin.piscinas.index',
             'icon_color' => 'blue',
             'icon' => 'fas fa-fw fa-swimming-pool',
+            'can' => 'admin.home'
         ],
         /*[
             'text' => 'change_password',
@@ -275,9 +291,10 @@ return [
         ],*/
         ['header' => 'utilities'],
         [
-            'text' => 'calendar',
+            'text' => 'Calendar',
             'route'  => 'admin.dias.index',
             'icon' => 'fas fa-fw fa-calendar-alt',
+            'can' => 'admin.home'
         ],
     ],
 

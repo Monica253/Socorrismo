@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Storage;
 
 class PiscinaController extends Controller
 {
-
+    public function __construct(){
+        $this->middleware('can:admin.home');
+    }
     /**
      * Display a listing of the resource.
      *

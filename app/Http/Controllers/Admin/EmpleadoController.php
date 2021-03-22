@@ -9,11 +9,10 @@ use App\Models\Empleado;
 
 class EmpleadoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        $this->middleware('can:admin.home');
+    }
+    
     public function index()
     {
         $empleados = Empleado::all();
