@@ -59,11 +59,77 @@
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="apellidos" value="{{ __('Lastname') }}" />
+            <x-jet-input id="apellidos" type="text" class="mt-1 block w-full" wire:model.defer="state.apellidos" autocomplete="apellidos" />
+            <x-jet-input-error for="apellidos" class="mt-2" />
+        </div>
+
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="email" value="{{ __('Email') }}" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="fecha_nacimiento" value="{{ __('Birth Date') }}" />
+            <x-jet-input id="fecha_nacimiento" type="date" class="mt-1 block w-full" wire:model.defer="state.fecha_nacimiento" autocomplete="fecha_nacimiento" />
+            <x-jet-input-error for="fecha_nacimiento" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="direccion" value="{{ __('Address') }}" />
+            <x-jet-input id="direccion" type="text" class="mt-1 block w-full" wire:model.defer="state.direccion" autocomplete="direccion" />
+            <x-jet-input-error for="direccion" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="cod_postal" value="{{ __('Postal Code') }}" />
+            <x-jet-input id="cod_postal" type="text" class="mt-1 block w-full" wire:model.defer="state.cod_postal" autocomplete="cod_postal" />
+            <x-jet-input-error for="cod_postal" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="telefono" value="{{ __('Phone') }}" />
+            <x-jet-input id="telefono" type="text" class="mt-1 block w-full" wire:model.defer="state.telefono" autocomplete="telefono" />
+            <x-jet-input-error for="telefono" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="dni" value="{{ __('Id Card') }}" />
+            <x-jet-input id="dni" type="text" class="mt-1 block w-full" wire:model.defer="state.dni" autocomplete="dni" />
+            <x-jet-input-error for="dni" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="num_seg_social" value="{{ __('Social Security Number') }}" />
+            <x-jet-input id="num_seg_social" type="text" class="mt-1 block w-full" wire:model.defer="state.num_seg_social" autocomplete="num_seg_social" />
+            <x-jet-input-error for="num_seg_social" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="num_cuenta" value="{{ __('Account Number') }}" />
+            <x-jet-input id="num_cuenta" type="text" class="mt-1 block w-full" wire:model.defer="state.num_cuenta" autocomplete="num_cuenta" />
+            <x-jet-input-error for="num_cuenta" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="banco" value="{{ __('Bank') }}" />
+            <x-jet-input id="banco" type="text" class="mt-1 block w-full" wire:model.defer="state.banco" autocomplete="banco" />
+            <x-jet-input-error for="banco" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="fecha_alta" value="{{ __('Entry Date') }}" />
+            <x-jet-input id="fecha_alta" type="date" class="mt-1 block w-full" wire:model.defer="state.fecha_alta" autocomplete="fecha_alta" />
+            <x-jet-input-error for="fecha_alta" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="fecha_baja" value="{{ __('Leaving Date') }}" />
+            <x-jet-input id="fecha_baja" type="date" class="mt-1 block w-full" wire:model.defer="state.fecha_baja" autocomplete="fecha_baja" />
+            <x-jet-input-error for="fecha_baja" class="mt-2" />
         </div>
     </x-slot>
 

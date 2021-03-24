@@ -10,6 +10,7 @@ use App\Models\Encargado;
 use App\Models\Empleado;
 use App\Models\Centro;
 use App\Models\Piscina;
+use App\Models\User;
 
 class DiasTrabajoController extends Controller
 {
@@ -23,14 +24,15 @@ class DiasTrabajoController extends Controller
      */
     public function index()
     {
-        $encargados = Encargado::pluck('nombre', 'id');
-        $empleados = Empleado::pluck('nombre', 'id');
+        //$encargados = Encargado::pluck('nombre', 'id');
+        //$empleados = Empleado::pluck('nombre', 'id');
+        $users = User::pluck('name', 'id');
         $centros = Centro::pluck('nombre', 'id');
         $piscinas = Piscina::pluck('nombre', 'id');
 
         $dias = DiasTrabajo::all();
 
-        return view('admin.dias.index', compact('dias', 'encargados', 'empleados', 'centros', 'piscinas'));
+        return view('admin.dias.index', compact('dias', 'users', 'centros', 'piscinas'));
     }
 
     /**
@@ -40,12 +42,13 @@ class DiasTrabajoController extends Controller
      */
     public function create()
     {
-        $encargados = Encargado::pluck('nombre', 'id');
-        $empleados = Empleado::pluck('nombre', 'id');
+        //$encargados = Encargado::pluck('nombre', 'id');
+        //$empleados = Empleado::pluck('nombre', 'id');
+        $users = User::pluck('name', 'id');
         $centros = Centro::pluck('nombre', 'id');
         $piscinas = Piscina::pluck('nombre', 'id');
 
-        return view('admin.dias.create', compact('encargados', 'empleados', 'centros', 'piscinas'));
+        return view('admin.dias.create', compact('encargados', 'users', 'piscinas'));
     }
 
     /**
@@ -81,14 +84,15 @@ class DiasTrabajoController extends Controller
      */
     public function edit(DiasTrabajo $dia)
     {
-        $encargados = Encargado::pluck('nombre', 'id');
-        $empleados = Empleado::pluck('nombre', 'id');
+        //$encargados = Encargado::pluck('nombre', 'id');
+        //$empleados = Empleado::pluck('nombre', 'id');
+        $users = User::pluck('name', 'id');
         $centros = Centro::pluck('nombre', 'id');
         $piscinas = Piscina::pluck('nombre', 'id');
 
         $dias = DiasTrabajo::all();
 
-        return view('admin.dias.edit', $dia, compact('dias', 'dia', 'encargados', 'empleados','centros', 'piscinas'));
+        return view('admin.dias.edit', $dia, compact('dias', 'dia', 'users','centros', 'piscinas'));
         //return view('admin.dias.edit', compact('dia'));
     }
 

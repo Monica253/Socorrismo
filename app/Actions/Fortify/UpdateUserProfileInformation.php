@@ -34,7 +34,18 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         } else {
             $user->forceFill([
                 'name' => $input['name'],
+                'apellidos' => $input['apellidos'],
                 'email' => $input['email'],
+                'fecha_nacimiento' => $input['fecha_nacimiento'],
+                'direccion' => $input['direccion'],
+                'cod_postal' => $input['cod_postal'],
+                'telefono' => $input['telefono'],
+                'dni' => $input['dni'],
+                'num_seg_social' => $input['num_seg_social'],
+                'num_cuenta' => $input['num_cuenta'],
+                'banco' => $input['banco'],
+                'fecha_alta' => $input['fecha_alta'],
+                'fecha_baja' => $input['fecha_baja'],
             ])->save();
         }
     }

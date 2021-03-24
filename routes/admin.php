@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\Admin\EncargadoController;
+//use App\Http\Controllers\Admin\EncargadoController;
 use App\Http\Controllers\Admin\EmpleadoController;
 use App\Http\Controllers\Admin\CentroController;
 use App\Http\Controllers\Admin\DiasTrabajoController;
@@ -17,7 +17,7 @@ Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->
 Route::resource('users', UserController::class)->middleware('can:admin.home')->names('admin.users');
 Route::resource('roles', RoleController::class)->middleware('can:admin.home')->names('admin.roles');
 
-Route::resource('encargados', EncargadoController::class)->middleware('can:admin.home')->names('admin.encargados');
+//Route::resource('encargados', EncargadoController::class)->middleware('can:admin.home')->names('admin.encargados');
 Route::resource('empleados', EmpleadoController::class)->names('admin.empleados');
 Route::resource('centros', CentroController::class)->middleware('can:admin.home')->names('admin.centros');
 Route::resource('piscinas', PiscinaController::class)->middleware('can:admin.home')->names('admin.piscinas');

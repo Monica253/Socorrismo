@@ -5,8 +5,10 @@ use App\Http\Livewire\Empleados;
 
 use App\Http\Controllers\CentroController;
 use App\Http\Controllers\PiscinaController;
-use App\Http\Controllers\EncargadoController;
-use App\Http\Controllers\EmpleadoController;
+//use App\Http\Controllers\EncargadoController;
+//use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,17 +25,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/offline', function () {
+    return view('offline');
+});
+
 Route::get('centros', [CentroController::class, 'index'])->name('centros.index');
 Route::get('centros/{centro}', [CentroController::class, 'show'])->name('centros.show');
 Route::get('piscinas', [PiscinaController::class, 'index'])->name('piscinas.index');
 Route::get('piscinas/{piscina}', [PiscinaController::class, 'show'])->name('piscinas.show');
-Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados.index');
-Route::get('encargados/{encargado}', [EncargadoController::class, 'show'])->name('encargados.show');
-Route::get('empleados', [EmpleadoController::class, 'index'])->name('empleados.index');
-Route::get('empleados/{empleado}', [EmpleadoController::class, 'show'])->name('empleados.show');
+Route::get('users', [UserController::class, 'index'])->name('users.index');
+Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
+//Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados.index');
+//Route::get('encargados/{encargado}', [EncargadoController::class, 'show'])->name('encargados.show');
+//Route::get('empleados', [EmpleadoController::class, 'index'])->name('empleados.index');
+//Route::get('empleados/{empleado}', [EmpleadoController::class, 'show'])->name('empleados.show');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('empleado', Empleados::class);
+//Route::get('empleado', Empleados::class);

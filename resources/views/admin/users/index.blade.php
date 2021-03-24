@@ -27,7 +27,10 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Lastname</th>
                         <th>Email</th>
+                        <th>Birth</th>
+                        <th>Phone</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -36,7 +39,10 @@
                         <tr>
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
+                            <td>{{$user->apellidos}}</td>
                             <td>{{$user->email}}</td>
+                            <td>{{$user->fecha_nacimiento}}</td>
+                            <td>{{$user->telefono}}</td>
                             <td>
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.users.show', $user)}}"><i class="fas fa-eye"></i></a>
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit', $user)}}"><i class="fas fa-user-edit"></i></a>

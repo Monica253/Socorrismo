@@ -16,7 +16,7 @@ class CreateCentrosTable extends Migration
         Schema::create('centros', function (Blueprint $table) {
             $table->bigIncrements('id');
 			$table->string('nombre', 80)->unique();
-            $table->string('slug', 35)->nullable();
+            $table->string('slug', 90)->nullable();
             $table->string('file', 100)->nullable();
 			$table->string('cadena_hotelera', 80)->nullable();
 			$table->string('email', 60)->nullable();

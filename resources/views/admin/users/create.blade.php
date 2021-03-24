@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.users.store']) !!}
+            {!! Form::open(['route' => 'register']) !!}
 
             <div class="form-group">
                 {!! Form::label('name', 'Name') !!}

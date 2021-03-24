@@ -259,7 +259,7 @@ return [
             'icon' => 'fas fa-fw fa-user-tie',
             'can' => 'admin.home'
         ],
-        [
+        /*[
             'text' => 'Managers',
             'route'  => 'admin.encargados.index',
             'icon' => 'fas fa-fw fa-user-tie',
@@ -270,7 +270,7 @@ return [
             'route'  => 'admin.empleados.index',
             'icon' => 'fas fa-fw fa-users',
             'can' => 'admin.home'
-        ],
+        ],*/
         [
             'text' => 'Hotels',
             'route'  => 'admin.centros.index',

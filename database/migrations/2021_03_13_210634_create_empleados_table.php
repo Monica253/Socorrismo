@@ -15,17 +15,20 @@ class CreateEmpleadosTable extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->string('nombre', 30);
+            $table->string('empleado_id')->unique();
+            $table->string('employee_password');
+            $table->rememberToken();
+			$table->string('nombre', 30)->nullable();
             $table->string('slug', 35)->nullable();
 			$table->string('apellidos', 40)->nullable();
-			$table->date('fecha_nacimiento', 10);
-			$table->string('direccion', 50);
-			$table->string('cod_postal', 50);
-			$table->string('telefono', 16);
-			$table->string('email', 40);
-			$table->string('dni', 9)->unique();
-			$table->string('num_seg_social', 20)->unique();
-			$table->string('num_cuenta', 30)->unique();
+			$table->date('fecha_nacimiento', 10)->nullable();
+			$table->string('direccion', 50)->nullable();
+			$table->string('cod_postal', 50)->nullable();
+			$table->string('telefono', 16)->nullable();
+			$table->string('email', 40)->nullable();
+			$table->string('dni', 9)->unique()->nullable();
+			$table->string('num_seg_social', 20)->unique()->nullable();
+			$table->string('num_cuenta', 30)->unique()->nullable();
 			$table->string('banco', 20)->nullable();
             $table->date('fecha_alta', 10)->nullable();
 			$table->date('fecha_baja', 10)->nullable();
