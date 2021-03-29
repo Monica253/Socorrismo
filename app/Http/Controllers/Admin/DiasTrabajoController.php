@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\DiasTrabajo;
-use App\Models\Encargado;
-use App\Models\Empleado;
+//use App\Models\Encargado;
+//use App\Models\Empleado;
 use App\Models\Centro;
 use App\Models\Piscina;
 use App\Models\User;
@@ -107,7 +107,7 @@ class DiasTrabajoController extends Controller
     {
         $dia->update($request->all());
 
-        return redirect()->route('admin.dias.edit', $dia)->with('info', 'Employee updated successfully');
+        return redirect()->route('admin.dias.edit', $dia)->with('info', 'Day updated successfully');
     }
 
     /**
@@ -120,6 +120,6 @@ class DiasTrabajoController extends Controller
     {
         $dia->delete();
 
-        return redirect()->route('admin.dias.index')->with('info', 'Employee removed successfully');
+        return redirect()->route('admin.dias.index')->with('info', 'Day removed successfully');
     }
 }

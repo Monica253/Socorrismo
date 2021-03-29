@@ -44,5 +44,10 @@
                 </x-jet-button>
             </div>
         </form>
+        <hr>
+        <br>
+        <a class="ml-20 text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+            {{ __('Don´t you have an account? Register here') }}
+        </a>
     </x-jet-authentication-card>
 </x-guest-layout>

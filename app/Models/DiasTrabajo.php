@@ -17,13 +17,14 @@ class DiasTrabajo extends Model
 	const CREATED_AT = 'fecha_creacion';
     const UPDATED_AT = 'fecha_actualizacion';
 	
-	public function Encargado(){
-		return $this->belongsTo(Encargado::class);
+	
+	public function User(){
+		return $this->belongsTo(User::class);
 	}
 	
-	public function Empleado(){
+	/*public function Empleado(){
 		return $this->belongsTo(Empleado::class);
-	}
+	}*/
 	
 	/*public function Hotel(){
 		return $this->belongsTo(Hotel::class);

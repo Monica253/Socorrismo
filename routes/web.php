@@ -8,6 +8,7 @@ use App\Http\Controllers\PiscinaController;
 //use App\Http\Controllers\EncargadoController;
 //use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DiasTrabajoController;
 
 
 /*
@@ -23,7 +24,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');     //La aplicación solo es accesible para usuarios registrados
 
 Route::get('/offline', function () {
     return view('offline');
@@ -35,6 +36,8 @@ Route::get('piscinas', [PiscinaController::class, 'index'])->name('piscinas.inde
 Route::get('piscinas/{piscina}', [PiscinaController::class, 'show'])->name('piscinas.show');
 Route::get('users', [UserController::class, 'index'])->name('users.index');
 Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
+Route::get('calendar', [DiasTrabajoController::class, 'index'])->name('calendar.index');
+Route::get('calendar/{dia}', [DiasTrabajoController::class, 'show'])->name('calendar.show');
 //Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados.index');
 //Route::get('encargados/{encargado}', [EncargadoController::class, 'show'])->name('encargados.show');
 //Route::get('empleados', [EmpleadoController::class, 'index'])->name('empleados.index');

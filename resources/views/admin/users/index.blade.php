@@ -16,11 +16,6 @@
 
 @section('content')
     <div class="card">
-
-        <div class="card-header">
-            <a class="btn btn-success btn-sm" href="{{route('admin.users.create')}}">Create Employee</a>
-        </div>
-
         <div class="card-body">
             <table class="table table-striped" id="users">
                 <thead>

@@ -14,55 +14,10 @@
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
-            <!--<div class="mt-4">
-                <x-jet-label for="apellidos" value="{{ __('Lastname') }}" />
-                <x-jet-input id="apellidos" class="block mt-1 w-full" type="text" name="apellidos" :value="old('direccion')" required />
-            </div>-->
-
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required />
             </div>
-
-            <!--<div class="mt-4">
-                <x-jet-label for="fecha_nacimiento" value="{{ __('Birth Date') }}" />
-                <x-jet-input id="fecha_nacimiento" class="block mt-1 w-full" type="date" name="fecha_nacimiento" :value="old('fecha_nacimiento')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="direccion" value="{{ __('Address') }}" />
-                <x-jet-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="cod_postal" value="{{ __('Postal Code') }}" />
-                <x-jet-input id="cod_postal" class="block mt-1 w-full" type="number" name="cod_postal" :value="old('cod_postal')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="telefono" value="{{ __('Phone') }}" />
-                <x-jet-input id="telefono" class="block mt-1 w-full" type="number" name="telefono" :value="old('telefono')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="dni" value="{{ __('Id Card') }}" />
-                <x-jet-input id="dni" class="block mt-1 w-full" type="text" name="dni" :value="old('dni')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="num_seg_social" value="{{ __('Social Security Number') }}" />
-                <x-jet-input id="num_seg_social" class="block mt-1 w-full" type="text" name="num_seg_social" :value="old('num_seg_social')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="num_cuenta" value="{{ __('Account Number') }}" />
-                <x-jet-input id="num_cuenta" class="block mt-1 w-full" type="text" name="num_cuenta" :value="old('num_cuenta')" required />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="banco" value="{{ __('Bank') }}" />
-                <x-jet-input id="banco" class="block mt-1 w-full" type="text" name="banco" :value="old('banco')" required />
-            </div>-->
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />

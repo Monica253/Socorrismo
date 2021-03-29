@@ -10,14 +10,15 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    public function __construct(){
+    /*public function __construct(){
         $this->middleware('can:admin.home');
-    }
+    }*/
+    //Controladores del register, etc, se encuentran en vendor/laravel/fortify/src/http/controllers/auth
     
-    public function empleados(){
+    /*public function empleados(){
         $users = User::whereHas("roles", function($q){ $q->where("name", "Admin"); })->get();
         return view('admin.users.admin', compact('users'));
-    }
+    }*/
     
     public function index()
     {

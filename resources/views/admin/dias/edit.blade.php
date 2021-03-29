@@ -20,23 +20,12 @@
                 {!! Form::model($dia, ['route' => ['admin.dias.update', $dia], 'method' => 'put']) !!}
     
                     <div class="form-row">
-                        <!--<div class="col">
-                            <div class="form-group">
-                                {!! Form::label('encargado_id', 'Manager') !!}
-                                {!! Form::select('encargado_id', $encargados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
-                                
-                                @error('encargado_id')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror
-        
-                            </div>
-                        </div>-->
                         <div class="col">
                             <div class="form-group">
-                                {!! Form::label('empleado_id', 'Employee') !!}
-                                {!! Form::select('empleado_id', $empleados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                {!! Form::label('user_id', 'Employee') !!}
+                                {!! Form::select('user_id', $users, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
                                 
-                                @error('empleado_id')
+                                @error('user_id')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
         
@@ -77,16 +66,6 @@
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
-
-                    <!--<div class="form-group">
-                        {!! Form::label('fecha_trabajo', 'Date') !!}
-                        {!! Form::date('fecha_trabajo', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
-                        
-                        @error('fecha_trabajo')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
-        
-                    </div>-->
 
                     <div class="form-group">
                         {!! Form::label('fecha_inicio', 'From') !!}
@@ -142,12 +121,12 @@
                 events : [
                     @foreach($dias as $dia)
                     {
-                        title : '{{ $dia->empleado->nombre }} - {{ $dia->centro->nombre }} - {{ $dia->piscina->nombre }} - {{ $dia->centro->horarios }}',
+                        title : '{{ $dia->user->nombre }} - {{ $dia->centro->nombre }} - {{ $dia->piscina->nombre }} - {{ $dia->centro->horarios }}',
                         start : '{{ $dia->fecha_inicio }}',
                         end : '{{ $dia->fecha_fin }}',
                         url : '{{ route('admin.dias.edit', $dia->id) }}',
                         textColor: 'black',
-                        color: '{{ $dia->empleado->color }}'
+                        color: '{{ $dia->user->color }}'
                     },
                     @endforeach
                 ]

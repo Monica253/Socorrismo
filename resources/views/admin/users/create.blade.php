@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Create User</h1>
+    <h1>Create Employee</h1>
 @stop
 
 @section('content')
@@ -41,7 +41,7 @@
 
             </div>
 
-                {!! Form::submit('Create User', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Create Employee', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>

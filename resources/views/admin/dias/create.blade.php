@@ -25,21 +25,10 @@
                     <div class="form-row">
                         <div class="col">
                             <div class="form-group">
-                                {!! Form::label('encargado_id', 'Manager') !!}
-                                {!! Form::select('encargado_id', $encargados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                {!! Form::label('user_id', 'Manager') !!}
+                                {!! Form::select('user_id', $users, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
                                 
-                                @error('encargado_id')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror
-        
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                {!! Form::label('empleado_id', 'Employee') !!}
-                                {!! Form::select('empleado_id', $empleados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
-                                
-                                @error('empleado_id')
+                                @error('user_id')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
         
