@@ -21,32 +21,7 @@
         <div class="card">
             <div class="card-body">
                 {!! Form::open(['route' => 'admin.dias.store', 'autocomplete' => 'off']) !!}
-    
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="form-group">
-                                {!! Form::label('encargado_id', 'Manager') !!}
-                                {!! Form::select('encargado_id', $encargados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
-                                
-                                @error('encargado_id')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror
-        
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                {!! Form::label('empleado_id', 'Employee') !!}
-                                {!! Form::select('empleado_id', $empleados, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
-                                
-                                @error('empleado_id')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror
-        
-                            </div>
-                        </div>
-                    </div>
-                    
+
                     <div class="form-row">
                         <div class="col">
                             <div class="form-group">

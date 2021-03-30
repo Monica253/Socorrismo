@@ -1,12 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Empleados;
 
 use App\Http\Controllers\CentroController;
 use App\Http\Controllers\PiscinaController;
-//use App\Http\Controllers\EncargadoController;
-//use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DiasTrabajoController;
 
@@ -38,13 +35,7 @@ Route::get('users', [UserController::class, 'index'])->name('users.index');
 Route::get('users/{user}', [UserController::class, 'show'])->name('users.show');
 Route::get('calendar', [DiasTrabajoController::class, 'index'])->name('calendar.index');
 Route::get('calendar/{dia}', [DiasTrabajoController::class, 'show'])->name('calendar.show');
-//Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados.index');
-//Route::get('encargados/{encargado}', [EncargadoController::class, 'show'])->name('encargados.show');
-//Route::get('empleados', [EmpleadoController::class, 'index'])->name('empleados.index');
-//Route::get('empleados/{empleado}', [EmpleadoController::class, 'show'])->name('empleados.show');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
-//Route::get('empleado', Empleados::class);

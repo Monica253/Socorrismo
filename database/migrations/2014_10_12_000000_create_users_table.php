@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
 			$table->string('num_seg_social', 20)->unique()->nullable();
 			$table->string('num_cuenta', 30)->unique()->nullable();
 			$table->string('banco', 20)->nullable();
+            $table->string('color', 30)->nullable();
             $table->date('fecha_alta', 10)->nullable();
 			$table->date('fecha_baja', 10)->nullable();
             $table->timestamps();

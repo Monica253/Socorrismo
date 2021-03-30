@@ -14,6 +14,23 @@ class PiscinaSeeder extends Seeder
      */
     public function run()
     {
-        Piscina::factory(5)->create();
+        Piscina::create([
+            'nombre' => 'Kikoland',
+            'slug' => 'kikoland',
+            'centro_id' => '1',
+            'observaciones' => 'Piscina mediana. Vigilar también piscina pequeña de niños.',
+        ]);
+        Piscina::create([
+            'nombre' => 'Piscina grande',
+            'slug' => 'piscina-grande',
+            'centro_id' => '1',
+            'observaciones' => 'Piscina grande con mucha profundidad. Los niños tienen que estar con un adulto.',
+        ]);
+        Piscina::create([
+            'nombre' => 'Piscina olímpica',
+            'slug' => 'piscina-olímpica',
+            'centro_id' => '4',
+            'observaciones' => 'Solo se permite la entrada a adultos que vayan a nadar en las calles.',
+        ]);
     }
 }

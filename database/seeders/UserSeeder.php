@@ -18,6 +18,11 @@ class UserSeeder extends Seeder
             'name' => 'Mónica Betancort Hernández',
             'email' => 'mbetancorthernndez@gmail.com',
             'password' => bcrypt('Csas1234')
+        ])->assignRole('Admin', 'Empleado');
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('Csas1234')
         ])->assignRole('Admin');
     }
 }

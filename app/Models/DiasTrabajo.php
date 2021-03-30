@@ -21,14 +21,6 @@ class DiasTrabajo extends Model
 	public function User(){
 		return $this->belongsTo(User::class);
 	}
-	
-	/*public function Empleado(){
-		return $this->belongsTo(Empleado::class);
-	}*/
-	
-	/*public function Hotel(){
-		return $this->belongsTo(Hotel::class);
-	}*/
 
 	public function Centro(){
 		return $this->belongsTo(Centro::class);

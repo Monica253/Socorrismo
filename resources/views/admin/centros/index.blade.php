@@ -9,6 +9,7 @@
 @endsection
 
 @section('content_header')
+    <a class="btn btn-sm btn-secondary float-right" href="{{route('admin.centros.create')}}">Create hotel</a>
     <h1>Hotels List</h1>
 @stop
 
@@ -21,11 +22,6 @@
     @endif
 
     <div class="card">
-
-        <div class="card-header">
-            <a class="btn btn-success btn-sm" href="{{route('admin.centros.create')}}">Create Hotel</a>
-        </div>
-
         <div class="card-body">
             <table class="table table-striped" id="centros">
                 <thead>

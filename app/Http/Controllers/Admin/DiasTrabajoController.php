@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\DiasTrabajo;
-//use App\Models\Encargado;
-//use App\Models\Empleado;
 use App\Models\Centro;
 use App\Models\Piscina;
 use App\Models\User;
@@ -24,8 +22,6 @@ class DiasTrabajoController extends Controller
      */
     public function index()
     {
-        //$encargados = Encargado::pluck('nombre', 'id');
-        //$empleados = Empleado::pluck('nombre', 'id');
         $users = User::pluck('name', 'id');
         $centros = Centro::pluck('nombre', 'id');
         $piscinas = Piscina::pluck('nombre', 'id');
@@ -42,13 +38,11 @@ class DiasTrabajoController extends Controller
      */
     public function create()
     {
-        //$encargados = Encargado::pluck('nombre', 'id');
-        //$empleados = Empleado::pluck('nombre', 'id');
         $users = User::pluck('name', 'id');
         $centros = Centro::pluck('nombre', 'id');
         $piscinas = Piscina::pluck('nombre', 'id');
 
-        return view('admin.dias.create', compact('encargados', 'users', 'piscinas'));
+        return view('admin.dias.create', compact('centros', 'users', 'piscinas'));
     }
 
     /**
@@ -84,8 +78,6 @@ class DiasTrabajoController extends Controller
      */
     public function edit(DiasTrabajo $dia)
     {
-        //$encargados = Encargado::pluck('nombre', 'id');
-        //$empleados = Empleado::pluck('nombre', 'id');
         $users = User::pluck('name', 'id');
         $centros = Centro::pluck('nombre', 'id');
         $piscinas = Piscina::pluck('nombre', 'id');

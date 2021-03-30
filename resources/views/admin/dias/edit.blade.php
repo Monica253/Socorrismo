@@ -81,6 +81,12 @@
                     
                 {!! Form::submit('Create laboral day', ['class' => 'btn btn-primary']) !!}
 
+                <form action="{{route('admin.dias.destroy', $dia)}}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger float-right">Remove laboral day</button>
+                </form>
+
                 {!! Form::close() !!}
             </div>
         </div>

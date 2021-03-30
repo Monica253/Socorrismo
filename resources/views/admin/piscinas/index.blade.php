@@ -9,6 +9,7 @@
 @endsection
 
 @section('content_header')
+    <a class="btn btn-sm btn-secondary float-right" href="{{route('admin.piscinas.create')}}">Create pool</a>
     <h1>Pools List</h1>
 @stop
 
@@ -21,11 +22,6 @@
     @endif
 
     <div class="card">
-
-        <div class="card-header">
-            <a class="btn btn-success btn-sm" href="{{route('admin.piscinas.create')}}">Create Pool</a>
-        </div>
-
         <div class="card-body">
             <table class="table table-striped" id="piscinas">
                 <thead>

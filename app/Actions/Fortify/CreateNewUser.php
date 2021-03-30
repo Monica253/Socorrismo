@@ -29,17 +29,8 @@ class CreateNewUser implements CreatesNewUsers
 
         return User::create([
             'name' => $input['name'],
-            //'apellidos' => $input['apellidos'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            //'fecha_nacimiento' => $input['fecha_nacimiento'],
-            //'direccion' => $input['direccion'],
-            //'cod_postal' => $input['cod_postal'],
-            //'telefono' => $input['telefono'],
-            //'dni' => $input['dni'],
-            //'num_seg_social' => $input['num_seg_social'],
-            //'num_cuenta' => $input['num_cuenta'],
-            //'banco' => $input['banco'],
         ]);
     }
 }

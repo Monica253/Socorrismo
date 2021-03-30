@@ -22,27 +22,21 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.home'])->assignRole($role1);
 
         Permission::create(['name' => 'admin.users.index'])->assignRole($role1);
+        Permission::create(['name' => 'admin.users.create'])->assignRole($role1);
         Permission::create(['name' => 'admin.users.edit'])->assignRole($role1);
         Permission::create(['name' => 'admin.users.update'])->assignRole($role1);
-
-        Permission::create(['name' => 'admin.encargados.index'])->assignRole($role1);
-        Permission::create(['name' => 'admin.encargados.create'])->assignRole($role1);
-        Permission::create(['name' => 'admin.encargados.edit'])->assignRole($role1);
-        Permission::create(['name' => 'admin.encargados.destroy'])->assignRole($role1);
-
-        Permission::create(['name' => 'admin.empleados.index'])->assignRole($role1);
-        Permission::create(['name' => 'admin.empleados.create'])->assignRole($role1);
-        Permission::create(['name' => 'admin.empleados.edit'])->assignRole($role1);
-        Permission::create(['name' => 'admin.empleados.destroy'])->assignRole($role1);
+        Permission::create(['name' => 'admin.users.destroy'])->assignRole($role1);
 
         Permission::create(['name' => 'admin.centros.index'])->assignRole($role1);
         Permission::create(['name' => 'admin.centros.create'])->assignRole($role1);
         Permission::create(['name' => 'admin.centros.edit'])->assignRole($role1);
+        Permission::create(['name' => 'admin.centros.update'])->assignRole($role1);
         Permission::create(['name' => 'admin.centros.destroy'])->assignRole($role1);
 
         Permission::create(['name' => 'admin.piscinas.index'])->assignRole($role1);
         Permission::create(['name' => 'admin.piscinas.create'])->assignRole($role1);
         Permission::create(['name' => 'admin.piscinas.edit'])->assignRole($role1);
+        Permission::create(['name' => 'admin.piscinas.update'])->assignRole($role1);
         Permission::create(['name' => 'admin.piscinas.destroy'])->assignRole($role1);
     }
 }

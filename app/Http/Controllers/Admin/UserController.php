@@ -15,11 +15,6 @@ class UserController extends Controller
     }*/
     //Controladores del register, etc, se encuentran en vendor/laravel/fortify/src/http/controllers/auth
     
-    /*public function empleados(){
-        $users = User::whereHas("roles", function($q){ $q->where("name", "Admin"); })->get();
-        return view('admin.users.admin', compact('users'));
-    }*/
-    
     public function index()
     {
         $users = User::all();
@@ -87,14 +82,15 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $request->validate([
+        /*$request->validate([
             'name' => 'required',
             'email' => "required|unique:users,email,$user->id"
-        ]);
+        ]);*/
 
+        
         $user->roles()->sync($request->roles);
 
-        $user->update($request->all());
+        //$user->update($request->all());
 
         return redirect()->route('admin.users.index', $user)->with('info', 'Manager modify successfully');
     }

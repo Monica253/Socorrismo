@@ -29,7 +29,7 @@
             header:{
                 left:'prev,next today',
                 center:'title',
-                right:'month,listDay,listWeek,listYear'
+                right:'month,listDay,listYear'
             },
             buttonText: {
                 month: 'Month',
