@@ -7,6 +7,8 @@ use App\Http\Controllers\PiscinaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DiasTrabajoController;
 
+use App\Http\Controllers\LanguageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,10 @@ Route::get('/', function () {
 Route::get('/offline', function () {
     return view('offline');
 });
+
+//App::setLocale('en');		//Para cambiar el idioma desde aquí
+//Para cambiar el idioma desde las banderitas de la app
+Route::get('lang/{lang}', [LanguageController::class, 'swap'])->name('lang.swap');
 
 Route::get('centros', [CentroController::class, 'index'])->name('centros.index');
 Route::get('centros/{centro}', [CentroController::class, 'show'])->name('centros.show');

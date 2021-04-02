@@ -14,9 +14,9 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => '',
     'title_prefix' => '',
-    'title_postfix' => '',
+    'title_postfix' => '| Lifeguard Managment',
 
     /*
     |--------------------------------------------------------------------------
@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>Lifeguard</b>Managment',
-    'logo_img' => 'vendor/adminlte/dist/img/socorrismo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/socorrismoIcon.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -65,11 +65,11 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_image' => true,
+    'usermenu_desc' => true,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -85,8 +85,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
 
     /*
@@ -126,9 +126,9 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-light elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-dark navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -224,16 +224,22 @@ return [
     */
 
     'menu' => [
+        [
+            'text' => 'Dashboard',
+            'route' => 'admin.home',
+            'icon' => 'fas fa-fw fa-home',
+            'can' => 'admin.home'
+        ],
         /*[
             'text' => 'search',
             'search' => true,
             'topnav' => true,
         ],*/
-        [
+        /*[
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
-        ],
+        ],*/
         /*[
             'text'        => 'pages',
             'url'         => 'admin/pages',
@@ -241,7 +247,7 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],*/
-        ['header' => 'ADMINISTRATOR'],
+        ['header' => 'Administrator'],
         /*[
             'text' => 'profile',
             'url'  => 'admin/settings',
@@ -277,7 +283,7 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],*/
-        ['header' => 'utilities'],
+        ['header' => 'Utilities'],
         [
             'text' => 'Calendar',
             'route'  => 'admin.dias.index',

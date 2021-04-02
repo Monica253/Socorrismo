@@ -73,4 +73,18 @@ class User extends Authenticatable
     /*public function roles(){
         return $this->belongsToMany(Role::class);
     }*/
+
+    public function adminlte_image(){
+        return auth()->user()->profile_photo_url;
+    }
+
+    public function adminlte_desc(){
+        return "Administrador";
+    }
+
+    public function adminlte_profile_url(){
+        return "user/profile";
+    }
+
+
 }

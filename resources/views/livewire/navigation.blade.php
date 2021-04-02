@@ -32,8 +32,8 @@
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <!--Logotipo-->
             <a href="/" class="flex-shrink-0 flex items-center">
-                <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-                <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
+                <img class="block lg:hidden h-8 w-auto" src="/vendor/adminlte/dist/img/socorrismoIcon.png" alt="Workflow">
+                <img class="hidden lg:block h-8 w-auto" src="/vendor/adminlte/dist/img/socorrismoIcon.png" alt="Workflow">
             </a>
 
             {{-- Menú lg --}}
@@ -41,9 +41,8 @@
                 <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" 
                     <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>-->
-                    <a href="/users" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Users</a>
-                    <a href="/centros" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Hotels</a>
-                    <a href="/piscinas" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pools</a>
+                    <a href="/centros" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">@lang('Hotels')</a>
+                    <a href="/piscinas" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">@lang('Pools')</a>
                     <a href="/calendar" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
                 </div>
             </div>
@@ -61,6 +60,26 @@
                     </svg>
                 </button>--}}
     
+                <!--Banderas dropdown-->
+                <!--Comprobamos si el status esta a true y existe más de un lenguaje-->
+                @if (config('locale.status') && count(config('locale.languages')) > 1)
+                  <div class="ml-3 relative" x-data="{ open: false }">
+                    <div>
+                      <button x-on:click="open = true" type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-expanded="false" aria-haspopup="true">
+                        <img src="/imagenes/{{App::getLocale()}}.png" width=40px height=40px></button>
+                    </div>
+                    <div x-show="open" x-on:click.away="open = false" class="z-10 origin-top-right absolute right-0 mt-2 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                      @foreach (array_keys(config('locale.languages')) as $lang)
+                        @if ($lang != App::getLocale())
+                            <a href="{!! route('lang.swap', $lang) !!}">
+                              <img src="/imagenes/{!! $lang !!}.png">
+                            </a>
+                        @endif
+                      @endforeach
+                    </div>
+                  </div>
+                @endif
+
                 <!-- Profile dropdown -->
                 <div class="ml-3 relative" x-data="{ open: false }">
                     <div>
@@ -81,18 +100,16 @@
                         To: "transform opacity-0 scale-95"
                     -->
                     <div x-show="open" x-on:click.away="open = false" class="z-10 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                      <a href="{{route('profile.show')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+                      <a href="{{route('profile.show')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{{ __('Your Profile') }}</a>
                       
                       @can('admin.home')
-                        <a href="{{route('admin.home')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Dashboard</a>
+                        <a href="{{route('admin.home')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{{ __('Dashboard') }}</a>
                       @endcan
                       
                       <form method="POST" action="{{ route('logout') }}">
                           @csrf
                           <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" onclick="event.preventDefault();
-                          this.closest('form').submit();">
-                              Sign out
-                          </a>
+                          this.closest('form').submit();">{{ __('Sign out') }}</a>
                       </form>
 
                     </div>
@@ -115,7 +132,6 @@
       <div class="px-2 pt-2 pb-3 space-y-1">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         {{-- <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a> --}}
-        <a href="/users" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Users</a>
         <a href="/centros" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Hotels</a>
         <a href="/piscinas" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pools</a>
         <a href="/calendar" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>

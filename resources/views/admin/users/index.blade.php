@@ -11,7 +11,7 @@
 @endsection
 
 @section('content_header')
-    <h1>Users List</h1>
+    <h1>Users list</h1>
 @stop
 
 @section('content')

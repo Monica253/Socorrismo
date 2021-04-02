@@ -16,4 +16,11 @@ return [
     'important'                     => 'Importante',
     'warning'                       => 'Advertencia',
     'information'                   => 'Información',
+    'Dashboard' => 'Panel principal',
+    'Administrator' => 'Administrador',
+    'Users' => 'Usuarios',
+    'Hotels' => 'Hoteles',
+    'Pools' => 'Piscinas',
+    'Utilities' => 'Utilidades',
+    'Calendar' => 'Calendario',
 ];
