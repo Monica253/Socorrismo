@@ -1,9 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', trans('validation.attributes.CPTitle'))
 
 @section('content_header')
-    <h1>Create Pool</h1>
+    <a class="btn btn-sm btn-secondary float-right" href="{{route('admin.piscinas.index')}}">{{ __('Back to list') }}</a>
+    <h1>{{ __('New pool') }}</h1>
 @stop
 
 @section('css')
@@ -31,7 +32,7 @@
 
                 @include('admin.piscinas.partials.form')
 
-                {!! Form::submit('Create Pool', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit(trans('validation.attributes.CreatePool'), ['class' => 'form-control mt-4 btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>

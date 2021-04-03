@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CentroController extends Controller
 {
+
     public function __construct(){
         $this->middleware('can:admin.home');
     }

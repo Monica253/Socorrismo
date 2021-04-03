@@ -1,9 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', trans('validation.attributes.DHTitle'))
 
 @section('content_header')
-    <h1>Details Hotel</h1>
+    <a class="btn btn-sm btn-secondary float-right" href="{{route('admin.centros.index')}}">{{ __('Back to list') }}</a>
+    <h1>{{ __('Details hotel') }}</h1>
 @stop
 
 @section('css')
@@ -26,27 +27,30 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header"><b>{{$centro->nombre}}</b></div>
+        <div class="card-header bg-blue"><b>{{$centro->nombre}}</b></div>
         <div class="card-body">
             <div class="image-wrapper">
                 @isset($centro->image)
-                    <img id="picture" class="float-right object-cover object-center" src="{{Storage::url($centro->image->url)}}" alt="">
+                    <img class="float-right object-cover object-center" src="{{Storage::url($centro->image->url)}}" alt="">
                 @else
-                    <img id="picture" class="float-right object-cover object-center" src="{{asset('/imagenes/hotelFile.png')}}" alt="">
+                    <img class="float-right object-cover object-center" src="{{asset('/imagenes/hotelFile.png')}}" alt="">
                 @endisset
             </div>
             <div class="float-left">
-                <h5 class="card-title">Hotel Company</h5>          
+                <h5>{{ __('Hotel company') }}</h5>
                 <p class="card-text">{{$centro->cadena_hotelera}}</p>
-                <h5 class="card-title">Email</h5>          
+                <h5>{{ __('Email') }}</h5>
                 <p class="card-text">{{$centro->email}}</p>
-                <h5 class="card-title">Contact</h5>          
+                <h5>{{ __('Phone') }}</h5>
                 <p class="card-text">{{$centro->telefono}}</p>
-                <h5 class="card-title">Address</h5>          
+                <h5>{{ __('Address') }}</h5>
                 <p class="card-text">{{$centro->direccion}}</p>
+                <h5>{{ __('Timetable') }}</h5>
+                <p class="card-text">{{$centro->horarios}}</p>
+                <h5>{{ __('Map') }}</h5>
             </div>
         </div>
-        <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
+        <div id="myMap" style="position:relative;width:600px;height:400px;margin-left:20px;"></div>
     </div>
 @stop
 

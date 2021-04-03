@@ -5,7 +5,7 @@
 @section('plugins.Fullcalendar', true)
 
 @section('content_header')
-    <h1>Calendario</h1>
+    <h1>{{ __('Calendar') }}</h1>
 @stop
 
 @section('css')
@@ -22,8 +22,8 @@
                     <div class="form-row">
                         <div class="col">
                             <div class="form-group">
-                                {!! Form::label('user_id', 'Employee') !!}
-                                {!! Form::select('user_id', $users, null, ['class' => 'form-control', 'placeholder' => "Select Employee's name"]) !!}
+                                {!! Form::label('user_id', trans('validation.attributes.Employee')) !!}
+                                {!! Form::select('user_id', $users, null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.employeePH')]) !!}
                                 
                                 @error('user_id')
                                     <span class="text-danger">{{$message}}</span>
@@ -37,7 +37,7 @@
                         <div class="col">
                             <div class="form-group">
                                 {!! Form::label('centro_id', 'Hotel') !!}
-                                {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+                                {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.hotelPH')]) !!}
                                 
                                 @error('centro_id')
                                     <span class="text-danger">{{$message}}</span>
@@ -47,8 +47,8 @@
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                {!! Form::label('piscina_id', 'Pool') !!}
-                                {!! Form::select('piscina_id', $piscinas, null, ['class' => 'form-control', 'placeholder' => "Select Pool's name"]) !!}
+                                {!! Form::label('piscina_id', trans('validation.attributes.Pool')) !!}
+                                {!! Form::select('piscina_id', $piscinas, null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.poolPH')]) !!}
                                 
                                 @error('piscina_id')
                                     <span class="text-danger">{{$message}}</span>
@@ -59,8 +59,8 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('horarios', 'Timetable') !!}
-                        {!! Form::select('horarios', ['10:00 - 18:00' => '10:00 - 18:00', '10:00 - 19:00' => '10:00 - 19:00', '11:00 - 19:00' => '11:00 - 19:00'], null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's timetable"]) !!}
+                        {!! Form::label('horarios', trans('validation.attributes.Timetable')) !!}
+                        {!! Form::select('horarios', ['10:00 - 18:00' => '10:00 - 18:00', '10:00 - 19:00' => '10:00 - 19:00', '11:00 - 19:00' => '11:00 - 19:00'], null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.timetablePH')]) !!}
                         
                         @error('horarios')
                             <span class="text-danger">{{$message}}</span>
@@ -77,19 +77,19 @@
         
                     </div>-->
 
-                    <div class="form-group">
-                        {!! Form::label('fecha_inicio', 'From') !!}
-                        {!! Form::date('fecha_inicio', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
-
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('fecha_fin', 'To') !!}
-                        {!! Form::date('fecha_fin', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
-        
+                    <div class="form-row mt-2">
+                        <div class="col">
+                            {!! Form::label('fecha_inicio', trans('validation.attributes.From')) !!}
+                            {!! Form::date('fecha_inicio', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
+                        </div>
+                    
+                        <div class="col">
+                            {!! Form::label('fecha_fin', trans('validation.attributes.To')) !!}
+                            {!! Form::date('fecha_fin', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
+                        </div>
                     </div>
                     
-                {!! Form::submit('Create laboral day', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit(trans('validation.attributes.CreateDay'), ['class' => 'form-control mt-4 btn btn-primary']) !!}
 
                 {!! Form::close() !!}
             </div>
@@ -124,10 +124,11 @@
                     right:'month,listDay,listWeek,listYear'
                 },
                 buttonText: {
-                    month: 'Month',
-                    listDay: 'List day',
-                    listWeek: 'List week',
-                    listYear: 'List year'
+                    today: "{{ __('Today') }}",
+                    month: "{{ __('Month') }}",
+                    listDay: "{{ __('List day') }}",
+                    listWeek: "{{ __('List week') }}",
+                    listYear: "{{ __('List year') }}"
                 },
                 events : [
                     @foreach($dias as $dia)

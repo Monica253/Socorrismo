@@ -1,6 +1,6 @@
 <div class="form-group">
-    {!! Form::label('nombre', 'Name') !!}
-    {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => "Introduce Pool's name"]) !!}
+    {!! Form::label('nombre', trans('Name')) !!}
+    {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.poolPH')]) !!}
     
     @error('nombre')
         <span class="text-danger">{{$message}}</span>
@@ -10,7 +10,7 @@
 
 <div class="form-group">
     {!! Form::label('centro_id', 'Hotel') !!}
-    {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
+    {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.hotelPH')]) !!}
     
     @error('centro_id')
         <span class="text-danger">{{$message}}</span>
@@ -21,7 +21,7 @@
 <div class="form-row">
     <div class="col">
         <div class="form-group">
-            {!! Form::label('file', 'Image') !!}
+            {!! Form::label('file', trans('validation.attributes.Image')) !!}
             {!! Form::file('file', ['class' => 'form-control-file']) !!}
         </div>
     </div>
@@ -37,8 +37,8 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('observaciones', 'Remarks') !!}
-    {!! Form::textarea('observaciones', null, ['class' => 'form-control', 'placeholder' => "Introduce Pool's remarks"]) !!}
+    {!! Form::label('observaciones', trans('validation.attributes.Remarks')) !!}
+    {!! Form::textarea('observaciones', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.remarksPH')]) !!}
     
     @error('observaciones')
         <span class="text-danger">{{$message}}</span>
@@ -47,8 +47,8 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('slug', 'Slug') !!}
-    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => "Pool's slug", 'readonly']) !!}
+    {!! Form::label('slug', trans('validation.attributes.Slug')) !!}
+    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.SlugPool'), 'readonly']) !!}
 
     @error('slug')
         <span class="text-danger">{{$message}}</span>

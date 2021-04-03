@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Employees')
+@section('title', trans('validation.attributes.UserTitle'))
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
@@ -11,22 +11,23 @@
 @endsection
 
 @section('content_header')
-    <h1>Users list</h1>
+    <h1>{{ __('Employees list') }}</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            <table class="table table-striped" id="users">
+            <table class="table table-striped" id="employees">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                        <th>Birth</th>
-                        <th>Phone</th>
-                        <th></th>
+                        <th>{{ __('Name') }}</th>
+                        <th>{{ __('Lastname') }}</th>
+                        <th>{{ __('Email') }}</th>
+                        <th class="no-sort">{{ __('Phone') }}</th>
+                        <th class="no-sort"></th>
+                        <th class="no-sort"></th>
+                        <th class="no-sort"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,11 +37,14 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->apellidos}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->fecha_nacimiento}}</td>
                             <td>{{$user->telefono}}</td>
-                            <td>
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.users.show', $user)}}"><i class="fas fa-eye"></i></a>
+                            <td class="pr-0 pl-0">
+                                <a class="btn btn-info btn-sm" href="{{route('admin.users.show', $user)}}"><i class="fas fa-eye"></i></a>
+                            </td>
+                            <td class="pr-0 pl-0">
                                 <a class="btn btn-primary btn-sm" href="{{route('admin.users.edit', $user)}}"><i class="fas fa-user-edit"></i></a>
+                            </td>
+                            <td class="pr-0 pl-0">
                                 <form action="{{route('admin.users.destroy', $user)}}" method="POST">
                                     @csrf
                                     @method('delete')
@@ -67,7 +71,11 @@
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#users').DataTable( {
+            $('#employees').DataTable( {
+                columnDefs: [ {
+                    "targets"  : 'no-sort',
+                    "orderable": false,
+                }],
                 responsive: true,
                 autoWidth: false,
                 dom: 'Bfrtip',

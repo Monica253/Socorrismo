@@ -73,7 +73,7 @@
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="fecha_nacimiento" value="{{ __('Birth Date') }}" />
+            <x-jet-label for="fecha_nacimiento" value="{{ __('Birth date') }}" />
             <x-jet-input id="fecha_nacimiento" type="date" class="mt-1 block w-full" wire:model.defer="state.fecha_nacimiento" autocomplete="fecha_nacimiento" />
             <x-jet-input-error for="fecha_nacimiento" class="mt-2" />
         </div>
@@ -85,7 +85,7 @@
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="cod_postal" value="{{ __('Postal Code') }}" />
+            <x-jet-label for="cod_postal" value="{{ __('Postal code') }}" />
             <x-jet-input id="cod_postal" type="text" class="mt-1 block w-full" wire:model.defer="state.cod_postal" autocomplete="cod_postal" />
             <x-jet-input-error for="cod_postal" class="mt-2" />
         </div>

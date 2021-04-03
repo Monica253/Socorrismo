@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-40 py-8">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-20 py-8">
         <h1 class="text-4xl text-gray-600 font-bold">{{$centro->nombre}}</h1>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -13,21 +13,23 @@
                 </figure>
 
                 <div class="text-base text-gray-500 mt-4">
-                    <h5 class="card-title py-2 font-bold">Hotel Company</h5>          
+                    <h5 class="card-title py-2 font-bold">{{ __('Hotel company') }}</h5>          
                     <p class="card-text">{{$centro->cadena_hotelera}}</p>
-                    <h5 class="card-title py-2 font-bold">Email</h5>          
+                    <h5 class="card-title py-2 font-bold">{{ __('Email') }}</h5>          
                     <p class="card-text">{{$centro->email}}</p>
-                    <h5 class="card-title py-2 font-bold">Phone Contact</h5>          
+                    <h5 class="card-title py-2 font-bold">{{ __('Phone') }}</h5>          
                     <p class="card-text">{{$centro->telefono}}</p>
-                    <h5 class="card-title py-2 font-bold">Address</h5>          
+                    <h5 class="card-title py-2 font-bold">{{ __('Address') }}</h5>          
                     <p class="card-text">{{$centro->direccion}}</p>
+                    <h5 class="card-title py-2 font-bold">{{ __('Timetable') }}</h5>        
+                    <p class="card-text">{{$centro->horarios}}</p>
                 </div>
-                <h5 class="card-title py-2 font-bold text-base text-gray-500">Map</h5>
+                <h5 class="card-title py-2 font-bold text-base text-gray-500">{{ __('Map') }}</h5>
                 <div id="myMap" class="h-80"></div>
             </div>
 
             <aside>
-                <h1 class="text-2xl font-bold text-gray-600 mb-4">Piscinas</h1>
+                <h1 class="text-2xl font-bold text-gray-600 mb-4">{{ __('Pools') }}</h1>
                 <ul>
                     @foreach ($centro->piscina as $piscina)
                         <li class="mb-4">

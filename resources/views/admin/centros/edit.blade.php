@@ -1,9 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', trans('validation.attributes.EHTitle'))
 
 @section('content_header')
-    <h1>Edit Hotel</h1>
+    <a class="btn btn-sm btn-secondary float-right" href="{{route('admin.centros.index')}}">{{ __('Back to list') }}</a>
+    <h1>{{ __('Edit hotel') }}</h1>
 @stop
 
 @section('css')
@@ -31,7 +32,7 @@
 
                 @include('admin.centros.partials.form')
 
-                {!! Form::submit('Modify hotel', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit(trans('validation.attributes.ModifyHotel'), ['class' => 'form-control mt-4 btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>

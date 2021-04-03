@@ -1,9 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', trans('validation.attributes.EUTitle'))
 
 @section('content_header')
-    <h1>Edit User</h1>
+    <a class="btn btn-sm btn-secondary float-right" href="{{route('admin.users.index')}}">{{ __('Back to list') }}</a>
+    <h1>{{ __('Edit user role') }}</h1>
 @stop
 
 @section('content')
@@ -20,7 +21,7 @@
 
             <div class="form-group">
                 {!! Form::label('name', 'Name') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => "Introduce user's name"]) !!}
+                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => "Introduce user's name", 'readonly']) !!}
                 
                 @error('name')
                     <span class="text-danger">{{$message}}</span>
@@ -30,7 +31,7 @@
 
             <div class="form-group">
                 {!! Form::label('email', 'Email') !!}
-                {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => "Introduce employee's email"]) !!}
+                {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => "Introduce employee's email", 'readonly']) !!}
                 
                 @error('email')
                     <span class="text-danger">{{$message}}</span>
@@ -48,7 +49,7 @@
                 </div>
             @endforeach
 
-                {!! Form::submit('Modify User', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit(trans('validation.attributes.ModifyUser'), ['class' => 'form-control mt-4 btn btn-primary']) !!}
 
             {!! Form::close() !!}
         </div>

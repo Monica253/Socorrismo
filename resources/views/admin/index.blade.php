@@ -33,9 +33,9 @@
         </div>
         <div class="col-sm-8">
             <div class="card">
-                <div class="card-header bg-primary bg-primary">{{ __('Hotels management') }}</div>
+                <div class="card-header bg-primary">{{ __('Hotels management') }}</div>
                 <div class="card-body">
-                    <p class="card-text">{{ __('This is where the hotels with which the company works are managed:') }}</p>
+                    <p class="card-text">{{ __('From here you can see the hotels with which the company works.') }}</p>
                     <li class="card-text">{{ __('Register new hotels') }}</li>
                     <li class="card-text">{{ __('View details') }}</li>
                     <li class="card-text">{{ __('Edit') }}</li>

@@ -5,7 +5,8 @@
 @section('plugins.Fullcalendar', true)
 
 @section('content_header')
-    <h1>Edit Date</h1>
+    <a class="btn btn-sm btn-secondary float-right" href="{{route('admin.dias.index')}}">{{ __('Back to list') }}</a>
+    <h1>{{ __('Edit laboral day') }}</h1>
 @stop
 
 @section('css')
@@ -19,72 +20,72 @@
             <div class="card-body">
                 {!! Form::model($dia, ['route' => ['admin.dias.update', $dia], 'method' => 'put']) !!}
     
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="form-group">
-                                {!! Form::label('user_id', 'Employee') !!}
-                                {!! Form::select('user_id', $users, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
-                                
-                                @error('user_id')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror
-        
-                            </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            {!! Form::label('user_id', trans('validation.attributes.Employee')) !!}
+                            {!! Form::select('user_id', $users, null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.employeePH')]) !!}
+                            
+                            @error('user_id')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
+    
                         </div>
                     </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-group">
+                            {!! Form::label('centro_id', 'Hotel') !!}
+                            {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.hotelPH')]) !!}
+                            
+                            @error('centro_id')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
+    
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            {!! Form::label('piscina_id', trans('validation.attributes.Pool')) !!}
+                            {!! Form::select('piscina_id', $piscinas, null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.poolPH')]) !!}
+                            
+                            @error('piscina_id')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
+    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('horarios', trans('validation.attributes.Timetable')) !!}
+                    {!! Form::select('horarios', ['10:00 - 18:00' => '10:00 - 18:00', '10:00 - 19:00' => '10:00 - 19:00', '11:00 - 19:00' => '11:00 - 19:00'], null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.timetablePH')]) !!}
                     
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="form-group">
-                                {!! Form::label('centro_id', 'Hotel') !!}
-                                {!! Form::select('centro_id', $centros, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
-                                
-                                @error('centro_id')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror
-        
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                {!! Form::label('piscina_id', 'Pool') !!}
-                                {!! Form::select('piscina_id', $piscinas, null, ['class' => 'form-control', 'placeholder' => "Select Hotel's name"]) !!}
-                                
-                                @error('piscina_id')
-                                    <span class="text-danger">{{$message}}</span>
-                                @enderror
-        
-                            </div>
-                        </div>
-                    </div>
+                    @error('horarios')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
+                </div>
 
-                    <div class="form-group">
-                        {!! Form::label('horarios', 'Timetable') !!}
-                        {!! Form::select('horarios', ['10:00 - 18:00' => '10:00 - 18:00', '10:00 - 19:00' => '10:00 - 19:00', '11:00 - 19:00' => '11:00 - 19:00'], null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's timetable"]) !!}
-                        
-                        @error('horarios')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('fecha_inicio', 'From') !!}
+                <div class="form-row mt-2">
+                    <div class="col">
+                        {!! Form::label('fecha_inicio', trans('validation.attributes.From')) !!}
                         {!! Form::date('fecha_inicio', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
-
                     </div>
-
-                    <div class="form-group">
-                        {!! Form::label('fecha_fin', 'To') !!}
+                
+                    <div class="col">
+                        {!! Form::label('fecha_fin', trans('validation.attributes.To')) !!}
                         {!! Form::date('fecha_fin', null, ['class' => 'form-control', 'placeholder' => "Date"]) !!}
-        
                     </div>
+                </div>
                     
-                {!! Form::submit('Create laboral day', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit(trans('validation.attributes.ModifyDay'), ['class' => 'form-control mt-4 btn btn-primary']) !!}
 
                 <form action="{{route('admin.dias.destroy', $dia)}}" method="POST">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="btn btn-danger float-right">Remove laboral day</button>
+                    <button type="submit" class="form-control mt-4 btn btn-danger">{{ __('Remove laboral day') }}</button>
                 </form>
 
                 {!! Form::close() !!}
@@ -119,10 +120,11 @@
                     right:'month,listDay,listWeek,listYear'
                 },
                 buttonText: {
-                    month: 'Month',
-                    listDay: 'List day',
-                    listWeek: 'List week',
-                    listYear: 'List year'
+                    today: "{{ __('Today') }}",
+                    month: "{{ __('Month') }}",
+                    listDay: "{{ __('List day') }}",
+                    listWeek: "{{ __('List week') }}",
+                    listYear: "{{ __('List year') }}"
                 },
                 events : [
                     @foreach($dias as $dia)

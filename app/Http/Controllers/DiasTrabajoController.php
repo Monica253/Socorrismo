@@ -23,14 +23,14 @@ class DiasTrabajoController extends Controller
         return view('calendar.index', compact('dias', 'users', 'centros', 'piscinas'));
     }
 
-    public function show(Centro $centro)
+    public function show(DiasTrabajo $dia)
     {
         $users = User::pluck('name', 'id');
         $centros = Centro::pluck('nombre', 'id');
         $piscinas = Piscina::pluck('nombre', 'id');
 
-        $dias = DiasTrabajo::all();
+        $dias = DiasTrabajo::where('user_id', auth()->id())->get();
 
-        return view('calendar.index', compact('dias', 'users', 'centros', 'piscinas'));
+        return view('calendar.show', compact('dia', 'dias', 'users', 'centros', 'piscinas'));
     }
 }

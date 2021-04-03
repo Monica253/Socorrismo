@@ -1,7 +1,7 @@
 <div class="form-row">
     <div class="col">
-        {!! Form::label('nombre', 'Name') !!}
-        {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's name"]) !!}
+        {!! Form::label('nombre', trans('Name')) !!}
+        {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.namePH')]) !!}
         
         @error('nombre')
             <span class="text-danger">{{$message}}</span>
@@ -9,8 +9,8 @@
     </div>
 
     <div class="col">
-        {!! Form::label('cadena_hotelera', 'Hotel Company') !!}
-        {!! Form::text('cadena_hotelera', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's company"]) !!}
+        {!! Form::label('cadena_hotelera', trans('validation.attributes.hotelcompany')) !!}
+        {!! Form::text('cadena_hotelera', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.hotelcompanyPH')]) !!}
         
         @error('cadena_hotelera')
             <span class="text-danger">{{$message}}</span>
@@ -18,10 +18,10 @@
     </div>
 </div>
 
-<div class="form-row">
+<div class="form-row mt-2">
     <div class="col">
-        {!! Form::label('email', 'Email') !!}
-        {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's email"]) !!}
+        {!! Form::label('email', trans('Email')) !!}
+        {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.emailPH')]) !!}
         
         @error('email')
             <span class="text-danger">{{$message}}</span>
@@ -29,8 +29,8 @@
     </div>
 
     <div class="col">
-        {!! Form::label('telefono', 'Phone Number') !!}
-        {!! Form::text('telefono', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's phone number"]) !!}
+        {!! Form::label('telefono', trans('Phone')) !!}
+        {!! Form::text('telefono', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.phonePH')]) !!}
         
         @error('telefono')
             <span class="text-danger">{{$message}}</span>
@@ -38,9 +38,9 @@
     </div>
 </div>
 
-<div class="form-group">
-    {!! Form::label('direccion', 'Address') !!}
-    {!! Form::text('direccion', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's address"]) !!}
+<div class="form-group mt-2">
+    {!! Form::label('direccion', trans('validation.attributes.Address')) !!}
+    {!! Form::text('direccion', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.addressPH')]) !!}
     
     @error('direccion')
         <span class="text-danger">{{$message}}</span>
@@ -48,10 +48,10 @@
 
 </div>
 
-<div class="form-row">
+<div class="form-row mt-2">
     <div class="col">
         <div class="form-group">
-            {!! Form::label('file', 'Image') !!}
+            {!! Form::label('file', trans('validation.attributes.Image')) !!}
             {!! Form::file('file', ['class' => 'form-control-file']) !!}
         </div>
     </div>
@@ -66,17 +66,20 @@
     </div>
 </div>
 
-<div class="form-group">
+<div class="form-row mt-2">
     <div class="col">
-        {!! Form::label('latitud', 'Latitude') !!}
-        {!! Form::text('latitud', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's latitude"]) !!}
+        {!! Form::label('latitud', trans('validation.attributes.Latitude')) !!}
+        {!! Form::text('latitud', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.latitudePH')]) !!}
         
         @error('latitud')
             <span class="text-danger">{{$message}}</span>
         @enderror
+    </div>
 
-        {!! Form::label('longitud', 'Longitude') !!}
-        {!! Form::text('longitud', null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's longitude"]) !!}
+    <div class="col">
+
+        {!! Form::label('longitud', trans('validation.attributes.Longitude')) !!}
+        {!! Form::text('longitud', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.longitudePH')]) !!}
         
         @error('longitud')
             <span class="text-danger">{{$message}}</span>
@@ -84,9 +87,9 @@
     </div>
 </div>
 
-<div class="form-group">
-    {!! Form::label('horarios', 'Timetable') !!}
-    {!! Form::select('horarios', ['10:00 - 18:00' => '10:00 - 18:00', '10:00 - 19:00' => '10:00 - 19:00', '11:00 - 19:00' => '11:00 - 19:00'], null, ['class' => 'form-control', 'placeholder' => "Introduce hotel's timetable"]) !!}
+<div class="form-group mt-2">
+    {!! Form::label('horarios', trans('validation.attributes.Timetable')) !!}
+    {!! Form::select('horarios', ['10:00 - 18:00' => '10:00 - 18:00', '10:00 - 19:00' => '10:00 - 19:00', '11:00 - 19:00' => '11:00 - 19:00'], null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.timetablePH')]) !!}
     
     @error('horarios')
         <span class="text-danger">{{$message}}</span>
@@ -95,8 +98,8 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('slug', 'Slug') !!}
-    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => "hotel's slug", 'readonly']) !!}
+    {!! Form::label('slug', trans('validation.attributes.Slug')) !!}
+    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.SlugHotel'), 'readonly']) !!}
 
     @error('slug')
         <span class="text-danger">{{$message}}</span>

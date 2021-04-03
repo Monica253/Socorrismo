@@ -1,84 +1,46 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 <x-app-layout>
-    <div class="row w-100 mt-2 mb-2 ml-2">
-        <div class="col-sm-3">
-            <img src="https://www.waimea.school.nz/wp-content/uploads/2020/04/muliple-Users.png" class="w-100" alt="">
-        </div>
-        <div class="col-sm-8">
-            <div class="card">
-                <div class="card-header bg-primary">{{ __('Users management') }}</div>
-                <div class="card-body">
-                    <p class="card-text">{{ __('From here you can manage the employees of the application:') }}</p>
-                    <li class="card-text">{{ __('View details') }}</li>
-                    <li class="card-text">{{ __('Edit') }}</li>
-                    <li class="card-text">{{ __('Delete') }}</li>
-                </div>
-                <div class="card-footer">
-                    <p class="card-text">{{ __('Remember that to register users you must log out and create them from the registration form.') }}</p>
-                </div>
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-10 py-10 z-0">
+        <h1 class="text-4xl text-gray-600 font-bold mb-4">{{ __('Home') }}</h1>
+
+        <div class="mb-4">
+            <div class="text-xl bg-blue-600 bg-opacity-50"><i class="far fa-bell"></i> {{ __('Important') }}</div>
+            <div>
+                <p class="text-lg">{{ __('If you have any problems or questions about anything, here is the contact information for the people in charge of the company, they will be able to help you:') }}
+                    <i class="fas fa-address-card"></i> <b>Mónica Betancort Hernández - <i class="fas fa-phone-square-alt"></i> 699659765</b>
+                </p>
             </div>
         </div>
-    </div>
-    <!--**************************-->
-    <div class="row w-100 mt-2 mb-2 ml-2">
-        <div class="col-sm-3">
-            <img src="https://icon-library.com/images/hotel-icon/hotel-icon-5.jpg" class="w-100" alt="">
-        </div>
-        <div class="col-sm-8">
-            <div class="card">
-                <div class="card-header bg-primary bg-primary">{{ __('Hotels management') }}</div>
-                <div class="card-body">
-                    <p class="card-text">{{ __('This is where the hotels with which the company works are managed:') }}</p>
-                    <li class="card-text">{{ __('Register new hotels') }}</li>
-                    <li class="card-text">{{ __('View details') }}</li>
-                    <li class="card-text">{{ __('Edit') }}</li>
-                    <li class="card-text">{{ __('Delete') }}</li>
-                </div>
-                <div class="card-footer">
-                    <p class="card-text">{{ __('Remember to enter the latitude and longitude of the hotel so that the map is generated and employees can locate the hotel.') }}</p>
-                </div>
+
+        <div class="mb-6">
+            <div class="text-xl bg-blue-600 bg-opacity-50"><i class="far fa-calendar-alt"></i> {{ __('Calendar') }}</div>
+            <div>
+                <p class="text-lg">{{ __('From here you can see the hotels with which the company works.') }}</p>
+                <p class="text-lg">{{ __('There is information about its opening hours, location, contact telephone number and everything you might need to go to it for work.') }}</p>
             </div>
         </div>
-    </div>
-    <!--**************************-->
-    <div class="row w-100 mt-2 mb-2 ml-2">
-        <div class="col-sm-3">
-            <img src="https://i.pinimg.com/originals/39/b7/83/39b7837625da3230df4e0d83ea0d31f4.png" class="w-100" alt="">
-        </div>
-        <div class="col-sm-8">
-            <div class="card">
-                <div class="card-header bg-primary">{{ __('Pools management') }}</div>
-                <div class="card-body">
-                    <p class="card-text">{{ __('This is where the pools where lifeguards work are managed:') }}</p>
-                    <li class="card-text">{{ __('Register new pools') }}</li>
-                    <li class="card-text">{{ __('View details') }}</li>
-                    <li class="card-text">{{ __('Edit') }}</li>
-                    <li class="card-text">{{ __('Delete') }}</li>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4">
+            <div><img src="/imagenes/hoteles.jpg" alt=""></div>
+            <aside>
+                <div>
+                    <div class="text-xl bg-blue-600 bg-opacity-50"><i class="fas fa-hotel"></i> {{ __('Hotels') }}</div>
+                    <div>
+                        <p>{{ __('From here you can see the hotels with which the company works.') }}</p>
+                        <p>{{ __('There is information about its opening hours, location, contact telephone number and everything you might need to go to it for work.') }}</p>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <p class="card-text">{{ __('If there is any information you need to know about the pool, please note it in the remarks section.') }}</p>
+            </aside>
+            <div><img src="/imagenes/hoteles.jpg" alt=""></div>
+            <aside>
+                <div>
+                    <div class="text-xl bg-blue-600 bg-opacity-50"><i class="fas fa-swimming-pool"></i> {{ __('Pools') }}</div>
+                    <div>
+                        <p>{{ __('From here you can see the hotels with which the company works.') }}</p>
+                        <p>{{ __('There is information about its opening hours, location, contact telephone number and everything you might need to go to it for work.') }}</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!--**************************-->
-    <div class="row w-100 mt-2 mb-2 ml-2">
-        <div class="col-sm-3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Google_Calendar_icon.svg/493px-Google_Calendar_icon.svg.png" class="w-100" alt="">
-        </div>
-        <div class="col-sm-8">
-            <div class="card">
-                <div class="card-header bg-primary">{{ __('Timetables management') }}</div>
-                <div class="card-body">
-                    <p class="card-text">{{ __("Section where workers' working days are organised:") }}</p>
-                    <li class="card-text">{{ __('Add employee working days') }}</li>
-                    <li class="card-text">{{ __('View details') }}</li>
-                    <li class="card-text">{{ __('Edit') }}</li>
-                    <li class="card-text">{{ __('Delete') }}</li>
-                </div>
-                <div class="card-footer">
-                    <p class="card-text">{{ __('Specify the employee, and the hotel, the pool and the hours he/she will be there.') }}</p>
-                </div>
-            </div>
+            </aside>
         </div>
     </div>
 </x-app-layout>
