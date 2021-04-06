@@ -88,6 +88,7 @@
             <x-jet-label for="cod_postal" value="{{ __('Postal code') }}" />
             <x-jet-input id="cod_postal" type="text" class="mt-1 block w-full" wire:model.defer="state.cod_postal" autocomplete="cod_postal" />
             <x-jet-input-error for="cod_postal" class="mt-2" />
+            <p class="text-xs text-gray-500">{{ __('It has to be a Spanish Postal Code (from 01000 to 52999).') }}</p>
         </div>
 
         <div class="col-span-6 sm:col-span-4">
@@ -112,24 +113,13 @@
             <x-jet-label for="num_cuenta" value="{{ __('Account Number') }}" />
             <x-jet-input id="num_cuenta" type="text" class="mt-1 block w-full" wire:model.defer="state.num_cuenta" autocomplete="num_cuenta" />
             <x-jet-input-error for="num_cuenta" class="mt-2" />
+            <p class="text-xs text-gray-500">{{ __('Format:') }} ES00 0000 0000 00 0000000000 / ES0000000000000000000000</p>
         </div>
 
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="banco" value="{{ __('Bank') }}" />
             <x-jet-input id="banco" type="text" class="mt-1 block w-full" wire:model.defer="state.banco" autocomplete="banco" />
             <x-jet-input-error for="banco" class="mt-2" />
-        </div>
-
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="fecha_alta" value="{{ __('Entry Date') }}" />
-            <x-jet-input id="fecha_alta" type="date" class="mt-1 block w-full" wire:model.defer="state.fecha_alta" autocomplete="fecha_alta" />
-            <x-jet-input-error for="fecha_alta" class="mt-2" />
-        </div>
-
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="fecha_baja" value="{{ __('Leaving Date') }}" />
-            <x-jet-input id="fecha_baja" type="date" class="mt-1 block w-full" wire:model.defer="state.fecha_baja" autocomplete="fecha_baja" />
-            <x-jet-input-error for="fecha_baja" class="mt-2" />
         </div>
     </x-slot>
 

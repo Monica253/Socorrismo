@@ -10,11 +10,10 @@ use App\Http\Controllers\Admin\PiscinaController;
 use App\Http\Controllers\Admin\UserController;
 //use App\Http\Controllers\Admin\RoleController;
 
-Route::get('', [HomeController::class, 'index'])->name('admin.home');
+Route::get('', [HomeController::class, 'index'])->name('admin.home')->middleware('can:admin.home');
 
-Route::resource('users', UserController::class)->names('admin.users');
+Route::resource('users', UserController::class)->names('admin.users')->middleware('can:admin.home');
 
-/*->middleware('can:admin.home')*/
 Route::resource('centros', CentroController::class)->middleware('can:admin.home')->names('admin.centros');
 Route::resource('piscinas', PiscinaController::class)->middleware('can:admin.home')->names('admin.piscinas');
 Route::resource('dias', DiasTrabajoController::class)->middleware('can:admin.home')->names('admin.dias');

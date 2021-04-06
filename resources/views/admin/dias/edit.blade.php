@@ -82,13 +82,34 @@
                     
                 {!! Form::submit(trans('validation.attributes.ModifyDay'), ['class' => 'form-control mt-4 btn btn-primary']) !!}
 
-                <form action="{{route('admin.dias.destroy', $dia)}}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="form-control mt-4 btn btn-danger">{{ __('Remove laboral day') }}</button>
-                </form>
+                <a class="form-control mt-4 btn btn-danger" href="#del{{$dia->id}}" data-toggle="modal">{{ __('Remove laboral day') }}</a>
 
                 {!! Form::close() !!}
+            </div>
+        </div>
+
+        <!-- Modal Para mostrar confirmación-->
+        <div class="modal fade" id="del{{$dia->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-gradient-danger">
+                        <h4 class="modal-title" id="myModalLabel">{{ __('Delete Confirmation') }}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class=info>
+                            <i class="fas fa-exclamation-triangle text-danger"></i><h5 class="modal-title" id="exampleModalLabel">{{ __('Are you sure you want to remove this work day?') }}</h5>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">{{ __('No, Cancel') }}</button>
+                        <form action="{{route('admin.dias.destroy', $dia)}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">{{ __('Yes, Delete') }}</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -110,8 +131,11 @@
         $(document).ready(function() {
             // page is now ready, initialize the calendar...
             $('#calendar').fullCalendar({
+                monthNames: ["{{ __('January') }}","{{ __('February') }}","{{ __('March') }}","{{ __('April') }}","{{ __('May') }}","{{ __('June') }}","{{ __('July') }}","{{ __('August') }}","{{ __('September') }}","{{ __('October') }}","{{ __('November') }}","{{ __('December') }}"],
+                monthNamesShort: ["{{ __('Jan') }}","{{ __('Feb') }}","{{ __('Mar') }}","{{ __('Apr') }}","{{ __('May') }}","{{ __('Jun') }}","{{ __('Jul') }}","{{ __('Aug') }}","{{ __('Sep') }}","{{ __('Oct') }}","{{ __('Nov') }}","{{ __('Dec') }}"],
+                dayNames: ["{{ __('Sunday') }}","{{ __('Monday') }}","{{ __('Tuesday') }}","{{ __('Wednesday') }}","{{ __('Thursday') }}","{{ __('Friday') }}","{{ __('Saturday') }}"],
+                dayNamesShort: ["{{ __('Sun') }}","{{ __('Mon') }}","{{ __('Tue') }}","{{ __('Wed') }}","{{ __('Thu') }}","{{ __('Fri') }}","{{ __('Sat') }}"],
                 // put your options and callbacks here
-                editable: true,
                 themeSystem: "standard",
                 selectable: true,
                 header:{

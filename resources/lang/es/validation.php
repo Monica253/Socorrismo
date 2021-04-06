@@ -197,6 +197,17 @@ return [
         'EUTitle'               => 'Editar empleado | Administración',
         'DHTitle'               => 'Detalles Hotel | Administración',
         'DPTitle'               => 'Detalles Piscina | Administración',
-        'DUTitle'               => 'Detalles Empleado | Administración'
+        'DUTitle'               => 'Detalles Empleado | Administración',
+        'Hotel added Successfully' => 'Hotel añadido exitosamente',
+        'Hotel modified Successfully' => 'Hotel modificado exitosamente',
+        'Hotel removed Successfully' => 'Hotel eliminado exitosamente',
+        'Work day added Successfully' => 'Día laboral añadido exitosamente',
+        'Work day modified Successfully' => 'Día laboral modificado exitosamente',
+        'Work day removed Successfully' => 'Día laboral eliminado exitosamente',
+        'Pool added Successfully' => 'Piscina añadida exitosamente',
+        'Pool modified Successfully' => 'Piscina modificada exitosamente',
+        'Pool removed Successfully' => 'Piscina eliminada exitosamente',
+        'Employee modified Successfully' => 'Empleado modificado exitosamente',
+        'Employee removed Successfully' => 'Empleado eliminado exitosamente',
     ],
 ];

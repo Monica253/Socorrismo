@@ -53,9 +53,19 @@ class DiasTrabajoController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'user_id' => 'required',
+            'centro_id' => 'required',
+            'piscina_id' => 'required',
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required',
+            'horarios' => 'required',
+        ]);
+
         $dia = DiasTrabajo::create($request->all());
 
-        return redirect()->route('admin.dias.index')->with('info', 'Laboral day added successfully');
+        return redirect()->route('admin.dias.index')->with('message',trans('validation.attributes.Work day added Successfully'));
         //return redirect()->route('admin.dias.edit', $dia)->with('info', 'Laboral day added successfully');
     }
 
@@ -65,10 +75,7 @@ class DiasTrabajoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(DiasTrabajo $dia)
-    {
-        return view('admin.dias.show', compact('dia'));
-    }
+    public function show(){}
 
     /**
      * Show the form for editing the specified resource.
@@ -97,9 +104,19 @@ class DiasTrabajoController extends Controller
      */
     public function update(Request $request, DiasTrabajo $dia)
     {
+
+        $request->validate([
+            'user_id' => 'required',
+            'centro_id' => 'required',
+            'piscina_id' => 'required',
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required',
+            'horarios' => 'required',
+        ]);
+
         $dia->update($request->all());
 
-        return redirect()->route('admin.dias.edit', $dia)->with('info', 'Day updated successfully');
+        return redirect()->route('admin.dias.index', $dia)->with('info',trans('validation.attributes.Work day modified Successfully'));
     }
 
     /**
@@ -112,6 +129,6 @@ class DiasTrabajoController extends Controller
     {
         $dia->delete();
 
-        return redirect()->route('admin.dias.index')->with('info', 'Day removed successfully');
+        return redirect()->route('admin.dias.index')->with('error',trans('validation.attributes.Work day removed Successfully'));
     }
 }

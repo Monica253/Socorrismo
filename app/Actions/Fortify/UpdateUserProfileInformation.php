@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
+use App\Rules\DNI;
+
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
     /**
@@ -21,6 +23,14 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'fecha_nacimiento' => ['required'],
+            'direccion' => ['required'],
+            'cod_postal' => ['required', 'regex:/^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$/'],
+            'telefono' => ['required', 'numeric', 'min:600000000', 'max:999999999'],
+            'dni' => ['required', "unique:users,slug,$user->id", new DNI],
+            'num_seg_social' => ['required', 'numeric', 'unique:users,slug,$user->id', 'min:100000000000', 'max:999999999999'],
+            'num_cuenta' => ['required', 'regex:/^[A-Z]{2}[0-9]{2}(?:[ ]?[0-9]{4}){2}(?:[ ]?[0-9]{2})(?:[ ]?[0-9]{10})?$/'],
+            'banco' => ['required'],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
@@ -44,8 +54,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'num_seg_social' => $input['num_seg_social'],
                 'num_cuenta' => $input['num_cuenta'],
                 'banco' => $input['banco'],
-                'fecha_alta' => $input['fecha_alta'],
-                'fecha_baja' => $input['fecha_baja'],
             ])->save();
         }
     }

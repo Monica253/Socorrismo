@@ -48,6 +48,7 @@ class PiscinaController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
+            'centro_id' => 'required',
             'slug' => 'required|unique:piscinas'
         ]);
 
@@ -61,7 +62,7 @@ class PiscinaController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.piscinas.index', $piscina)->with('info', 'Pool added successfully');
+        return redirect()->route('admin.piscinas.index', $piscina)->with('message',trans('validation.attributes.Pool added Successfully'));
     }
 
     /**
@@ -97,6 +98,13 @@ class PiscinaController extends Controller
      */
     public function update(Request $request, Piscina $piscina)
     {
+
+        $request->validate([
+            'nombre' => 'required',
+            'centro_id' => 'required',
+            'slug' => "required|unique:piscinas,slug,$piscina->id|max:255"
+        ]);
+
         $piscina->update($request->all());
 
         if($request->file('file')){
@@ -115,7 +123,7 @@ class PiscinaController extends Controller
             }
         }
 
-        return redirect()->route('admin.piscinas.index', $piscina)->with('info', 'Pool updated successfully');
+        return redirect()->route('admin.piscinas.index', $piscina)->with('info',trans('validation.attributes.Pool modified Successfully'));
     }
 
     /**
@@ -128,6 +136,6 @@ class PiscinaController extends Controller
     {
         $piscina->delete();
 
-        return redirect()->route('admin.piscinas.index')->with('info', 'Pool removed successfully');
+        return redirect()->route('admin.piscinas.index')->with('error',trans('validation.attributes.Pool removed Successfully'));
     }
 }

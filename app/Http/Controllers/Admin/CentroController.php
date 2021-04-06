@@ -48,7 +48,11 @@ class CentroController extends Controller
         //return Storage::put('images', $request->file('file'));
 
         $request->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|max:255',
+            'email' => "required|unique:centros,email,$centro->id|max:255",
+            'telefono' => "required|unique:centros,telefono,$centro->id",
+            'direccion' => 'required',
+            'horarios' => 'required',
             'slug' => 'required|unique:centros'
         ]);
 
@@ -62,7 +66,7 @@ class CentroController extends Controller
             ]);
         }
 
-        return redirect()->route('admin.centros.index', $centro)->with('info', 'Hotel added successfully');
+        return redirect()->route('admin.centros.index', $centro)->with('message',trans('validation.attributes.Hotel added Successfully'));
     }
 
     /**
@@ -98,6 +102,16 @@ class CentroController extends Controller
      */
     public function update(Request $request, Centro $centro)
     {
+
+        $request->validate([
+            'nombre' => 'required|max:255',
+            'email' => "required|unique:centros,email,$centro->id|max:255",
+            'telefono' => "required|unique:centros,telefono,$centro->id",
+            'direccion' => 'required',
+            'horarios' => 'required',
+            'slug' => "required|unique:centros,slug,$centro->id|max:255"
+        ]);
+
         $centro->update($request->all());
 
         if($request->file('file')){
@@ -116,7 +130,7 @@ class CentroController extends Controller
             }
         }
 
-        return redirect()->route('admin.centros.index', $centro)->with('info', 'Hotel updated successfully');
+        return redirect()->route('admin.centros.index', $centro)->with('info',trans('validation.attributes.Hotel modified Successfully'));
     }
 
     /**
@@ -133,6 +147,6 @@ class CentroController extends Controller
 
         $centro->delete();
 
-        return redirect()->route('admin.centros.index')->with('info', 'Hotel removed successfully');
+        return redirect()->route('admin.centros.index')->with('error',trans('validation.attributes.Hotel removed Successfully'));
     }
 }

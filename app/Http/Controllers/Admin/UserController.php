@@ -10,9 +10,9 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    /*public function __construct(){
+    public function __construct(){
         $this->middleware('can:admin.home');
-    }*/
+    }
     //Controladores del register, etc, se encuentran en vendor/laravel/fortify/src/http/controllers/auth
     
     public function index()
@@ -37,17 +37,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|unique:users'
-        ]);
-
-        $user = User::create($request->all());
-
-        return redirect()->route('admin.users.index', $user)->with('info', 'Manager added successfully');
-    }
+    public function store(){}
 
     /**
      * Display the specified resource.
@@ -82,17 +72,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        /*$request->validate([
-            'name' => 'required',
-            'email' => "required|unique:users,email,$user->id"
-        ]);*/
-
         
         $user->roles()->sync($request->roles);
 
         //$user->update($request->all());
 
-        return redirect()->route('admin.users.index', $user)->with('info', 'Manager modify successfully');
+        return redirect()->route('admin.users.index', $user)->with('info',trans('validation.attributes.Employee modified Successfully'));
     }
 
     /**
@@ -105,6 +90,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('admin.users.index')->with('info', 'Manager removed successfully');
+        return redirect()->route('admin.users.index')->with('error',trans('validation.attributes.Employee removed Successfully'));
     }
 }

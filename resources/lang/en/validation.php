@@ -191,7 +191,20 @@ return [
         'EUTitle'               => 'Edit Employee | Dashboard',
         'DHTitle'               => 'Details Hotel | Dashboard',
         'DPTitle'               => 'Details Pool | Dashboard',
-        'DUTitle'               => 'Details Employee | Dashboard'
+        'DUTitle'               => 'Details Employee | Dashboard',
+        'Hotel added Successfully' => 'Hotel added Successfully',
+        'Hotel modified Successfully' => 'Hotel modified Successfully',
+        'Hotel removed Successfully' => 'Hotel removed Successfully',
+        'Work day added Successfully' => 'Work day added Successfully',
+        'Work day modified Successfully' => 'Work day modified Successfully',
+        'Work day removed Successfully' => 'Work day removed Successfully',
+        'Pool added Successfully' => 'Pool added Successfully',
+        'Pool modified Successfully' => 'Pool modified Successfully',
+        'Pool removed Successfully' => 'Pool removed Successfully',
+        'Employee added Successfully' => 'Employee added Successfully',
+        'Employee modified Successfully' => 'Employee modified Successfully',
+        'Employee removed Successfully' => 'Employee removed Successfully',
+        
     ],
 
 ];

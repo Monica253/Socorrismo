@@ -40,8 +40,6 @@
 @stop
 
 @section('js')
-    
-    <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
     <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
 
     <script>
@@ -52,12 +50,6 @@
                 space: '-'
             });
         });
-
-        ClassicEditor
-            .create( document.querySelector( '#observaciones' ) )
-            .catch( error => {
-                console.error( error );
-            });
 
         //Cambiar imagen
         document.getElementById("file").addEventListener('change', cambiarImagen);

@@ -1,16 +1,16 @@
 <?php
 
 return [
-    'name' => 'Gestion Socorrismo',
+    'name' => 'Gestión Socorrismo',
     'manifest' => [
-        'name' => env('APP_NAME', 'Gestion Socorrismo'),
+        'name' => env('APP_NAME', 'Gestión Socorrismo'),
         'short_name' => 'Socorrismo',
         'start_url' => '/',
-        'background_color' => '#ffffff',
-        'theme_color' => '#000000',
+        'background_color' => '#8FB6EB',
+        'theme_color' => '#031734',
         'display' => 'standalone',
         'orientation'=> 'any',
-        'status_bar'=> 'black',
+        'status_bar'=> '#031734',
         'icons' => [
             '72x72' => [
                 'path' => '/images/icons/icon-72x72.png',
