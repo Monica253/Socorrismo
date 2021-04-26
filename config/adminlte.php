@@ -274,7 +274,6 @@ return [
         [
             'text' => 'Pools',
             'route'  => 'admin.piscinas.index',
-            'icon_color' => 'blue',
             'icon' => 'fas fa-fw fa-swimming-pool',
             'can' => 'admin.home'
         ],

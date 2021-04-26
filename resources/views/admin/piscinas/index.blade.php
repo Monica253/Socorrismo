@@ -11,6 +11,7 @@
 
 @section('content_header')
     <a class="btn btn-sm btn-success float-right" href="{{route('admin.piscinas.create')}}">{{ __('Create pool') }}</a>
+    <a class="btn btn-sm btn-danger float-right mr-2" href="{{ route('piscinasPDF') }}">{{ __('PDF') }}</a>
     <h1>{{ __('Pools list') }}</h1>
 @stop
 

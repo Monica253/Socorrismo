@@ -1,7 +1,9 @@
 <x-app-layout>
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
-        <h1 class="text-4xl text-gray-700 font-bold mb-4">{{ __('Pools list') }}</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div>
+        <div class="w-full py-2 bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400">
+            <h1 class="text-5xl text-gray-700 mb-2 mt-2 text-center">{{ __('Pools list') }}</h1>
+        </div>
+        <div class="sm:px-6 lg:px-8 mt-2 animate__animated animate__fadeInUp grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($piscinas as $piscina)
                 <a href="{{route('piscinas.show', $piscina)}}">
                     @isset($piscina->image)

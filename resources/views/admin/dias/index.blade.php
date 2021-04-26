@@ -5,6 +5,7 @@
 @section('plugins.Fullcalendar', true)
 
 @section('content_header')
+    <a class="btn btn-sm btn-danger float-right" href="{{ route('diastrabajoPDF') }}">{{ __('PDF') }}</a>
     <h1>{{ __('Calendar') }}</h1>
 @stop
 
@@ -28,7 +29,6 @@
                                 @error('user_id')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
-        
                             </div>
                         </div>
                     </div>
@@ -42,18 +42,16 @@
                                 @error('centro_id')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
-        
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 {!! Form::label('piscina_id', trans('validation.attributes.Pool')) !!}
                                 {!! Form::select('piscina_id', $piscinas, null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.poolPH')]) !!}
-                                
+            
                                 @error('piscina_id')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
-        
                             </div>
                         </div>
                     </div>

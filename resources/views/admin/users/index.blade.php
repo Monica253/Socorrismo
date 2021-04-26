@@ -3,8 +3,6 @@
 @section('title', trans('validation.attributes.UserTitle'))
 
 @section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
@@ -12,6 +10,7 @@
 @endsection
 
 @section('content_header')
+    <a class="btn btn-sm btn-danger float-right" href="{{ route('usersPDF') }}">{{ __('PDF') }}</a>
     <h1>{{ __('Employees list') }}</h1>
 @stop
 
@@ -82,12 +81,8 @@
 @stop
 
 @section('js')
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
@@ -130,39 +125,30 @@
         @endif
     </script>
     <script>
-        $(document).ready(function() {
-            $('#employees').DataTable( {
-                "language": {
-                    "lengthMenu": "{{ __('Display') }} _MENU_ {{ __('records per page') }}",
-                    "zeroRecords": "{{ __('Nothing found - sorry') }}",
-                    "emptyTable": "{{ __('No data available in table') }}",
-                    "info": "{{ __('Showing page') }} _PAGE_ {{ __('of') }} _PAGES_",
-                    "infoEmpty": "{{ __('No records available') }}",
-                    "infoFiltered": "({{ __('filtered from') }} _MAX_ {{ __('total records') }})",
-                    "loadingRecords": "{{ __('Loading...') }}",
-                    "processing":     "{{ __('Processing...') }}",
-                    "search":         "{{ __('Search:') }}",
-                    "paginate": {
-                        "first":      "{{ __('First') }}",
-                        "last":       "{{ __('Last') }}",
-                        "next":       "{{ __('Next') }}",
-                        "previous":   "{{ __('Previous') }}"
-                    },
+        $('#employees').DataTable( {
+            "language": {
+                "lengthMenu": "{{ __('Display') }} _MENU_ {{ __('records per page') }}",
+                "zeroRecords": "{{ __('Nothing found - sorry') }}",
+                "emptyTable": "{{ __('No data available in table') }}",
+                "info": "{{ __('Showing page') }} _PAGE_ {{ __('of') }} _PAGES_",
+                "infoEmpty": "{{ __('No records available') }}",
+                "infoFiltered": "({{ __('filtered from') }} _MAX_ {{ __('total records') }})",
+                "loadingRecords": "{{ __('Loading...') }}",
+                "processing":     "{{ __('Processing...') }}",
+                "search":         "{{ __('Search:') }}",
+                "paginate": {
+                    "first":      "{{ __('First') }}",
+                    "last":       "{{ __('Last') }}",
+                    "next":       "{{ __('Next') }}",
+                    "previous":   "{{ __('Previous') }}"
                 },
-                columnDefs: [ {
-                    "targets"  : 'no-sort',
-                    "orderable": false,
-                }],
-                responsive: true,
-                autoWidth: false,
-                dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extend: 'pdfHtml5',
-                        messageTop: 'PDF with employees list'
-                    }
-                ]
-            } );
+            },
+            columnDefs: [ {
+                "targets"  : 'no-sort',
+                "orderable": false,
+            }],
+            responsive: true,
+            autoWidth: false
         } );
     </script>
 @endsection

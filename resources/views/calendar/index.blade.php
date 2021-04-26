@@ -1,11 +1,13 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
 <x-app-layout>
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-10 py-10 z-0">
-        <h1 class="text-4xl text-gray-600 font-bold mb-4">{{ __('Calendar') }}</h1>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div id="calendar"></div>
+    <div>
+        <div class="w-full py-2 bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400">
+            <h1 class="text-5xl text-gray-700 mb-2 mt-2 text-center">{{ __('Calendar') }}</h1>
+        </div>
+        <div class="sm:px-6 lg:px-8 mt-2 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div id="calendar" class="animate__animated animate__fadeInLeft"></div>
             <aside>
-                <div id="calendar2">
+                <div id="calendar2" class="animate__animated animate__fadeInRight">
                     <!--<h1 class="text-2xl leading-8 font-semibold mb-4">{{ __('List') }}</h1>
                     <hr class="border-dashed border-2 border-blue-600 mb-2">
                     <ul>

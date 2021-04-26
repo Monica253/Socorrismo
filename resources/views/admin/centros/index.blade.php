@@ -11,6 +11,7 @@
 
 @section('content_header')
     <a class="btn btn-sm btn-success float-right" href="{{route('admin.centros.create')}}">{{ __('Create hotel') }}</a>
+    <a class="btn btn-sm btn-danger float-right mr-2" href="{{ route('centrosPDF') }}">{{ __('PDF') }}</a>
     <h1>{{ __('Hotels list') }}</h1>
 @stop
 
