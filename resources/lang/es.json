@@ -683,7 +683,7 @@
     "From here you can see the hotels with which the company works.": "Desde aquí puede ver los hoteles con los que trabaja la empresa.",
     "There is information about its opening hours, location, contact telephone number and everything you might need to go to it for work.": "Hay información sobre su horario, localización, teléfono de contacto y todo lo que pueda necesitar para acudir a él para trabajar.",
     "If you have any problems or questions about anything, here is the contact information for the people in charge of the company, they will be able to help you:": "Si tienes algún problema o alguna duda respecto a cualquier cosa, aquí tienes la información de contacto de los encargados de la empresa, ellos podrán ayudarte:",
-    "In the calendar section you will be able to see only your working days, and filter them by day and month. On the right hand side you will see your working days displayed in a list, which can also be filtered by week and year. By clicking on the information of the working day (calendar or list) you can see its detailed information in another way.": "En la sección de calendario podrás ver únicamente tus días laborales, y filtrarlos por día y mes. En la parte de la derecha aparecen tus días laborales mostrados en una lista, que también se puede filtrar por semana y año. Clicando sobre la información del día laboral (calendario o lista) se puede ver su información detallada de otra forma.",
+    "In the calendar section you will be able to see only your working days. On the right side, the same days will appear in a list, which can be filtered by week and year. By clicking on the color label of the day (in the calendar or list) you can see its detailed information in another way.": "En la sección de calendario podrás ver solo tus días laborables. En el lado derecho, aparecerán los mismos días en una lista, que se puede filtrar por semana y año. Pulsando sobre la etiqueta de color del día (en el calendario o lista) puedes ver su información detallada de otra forma.",
     "Delete Confirmation": "Confirmación para borrar",
     "Are you sure you want to remove this hotel?": "¿Está seguro de que quiere eliminar este hotel?",
     "Are you sure you want to remove this pool?": "¿Está seguro de que quiere eliminar esta piscina?",
@@ -729,5 +729,6 @@
     "Friday": "Viernes",
     "Saturday": "Sábado",
     "Offline": "Sin conexión",
-    "You are currently not connected to any networks.": "Actualmente no estás conectado a ninguna red."
+    "You are currently not connected to any networks.": "Actualmente no estás conectado a ninguna red.",
+    "Attention": "Atención"
 }

@@ -13,18 +13,22 @@
                 </figure>
 
                 <div class="text-base text-gray-500 mt-4">
-                    <h5 class="card-title py-2 font-bold">{{ __('Hotel company') }}</h5>          
-                    <p class="card-text">{{$centro->cadena_hotelera}}</p>
-                    <h5 class="card-title py-2 font-bold">{{ __('Email') }}</h5>          
-                    <p class="card-text">{{$centro->email}}</p>
-                    <h5 class="card-title py-2 font-bold">{{ __('Phone') }}</h5>          
-                    <p class="card-text">{{$centro->telefono}}</p>
-                    <h5 class="card-title py-2 font-bold">{{ __('Address') }}</h5>          
-                    <p class="card-text">{{$centro->direccion}}</p>
+                    <div class="row float-left mr-10">
+                        <h5 class="card-title py-2 font-bold">{{ __('Hotel company') }}</h5>          
+                        <p class="card-text">{{$centro->cadena_hotelera}}</p>
+                        <h5 class="card-title py-2 font-bold">{{ __('Phone') }}</h5>          
+                        <p class="card-text">{{$centro->telefono}}</p>
+                    </div>
+                    <div class="row">
+                        <h5 class="card-title py-2 font-bold">{{ __('Email') }}</h5>          
+                        <p class="card-text">{{$centro->email}}</p>
+                        <h5 class="card-title py-2 font-bold">{{ __('Address') }}</h5>          
+                        <p class="card-text">{{$centro->direccion}}</p>
+                    </div>
                     <h5 class="card-title py-2 font-bold">{{ __('Timetable') }}</h5>        
                     <p class="card-text">{{$centro->horarios}}</p>
                 </div>
-                <h5 class="card-title py-2 font-bold text-base text-gray-500">{{ __('Map') }}</h5>
+                <h5 class="card-title py-2 font-bold text-base text-gray-500">{{ __('Map') }} <i class="fas fa-map-marked-alt"></i></h5>
                 <div id="myMap" class="h-80"></div>
             </div>
 

@@ -1,7 +1,7 @@
 <x-app-layout>
     <div>
-        <div class="w-full py-2 bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400">
-            <h1 class="text-5xl text-gray-700 mb-2 mt-2 text-center">{{ __('Pools list') }}</h1>
+        <div class="w-full py-2">
+            <h1 class="text-4xl text-gray-700 mb-2 mt-2 text-center">{{ __('Pools list') }}</h1>
         </div>
         <div class="sm:px-6 lg:px-8 mt-2 animate__animated animate__fadeInUp grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($piscinas as $piscina)

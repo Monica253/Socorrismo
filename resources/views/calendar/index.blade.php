@@ -1,8 +1,8 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
 <x-app-layout>
     <div>
-        <div class="w-full py-2 bg-gradient-to-r from-blue-400 via-blue-200 to-blue-400">
-            <h1 class="text-5xl text-gray-700 mb-2 mt-2 text-center">{{ __('Calendar') }}</h1>
+        <div class="w-full py-2">
+            <h1 class="text-4xl text-gray-700 mb-2 mt-2 text-center">{{ __('Calendar') }}</h1>
         </div>
         <div class="sm:px-6 lg:px-8 mt-2 grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div id="calendar" class="animate__animated animate__fadeInLeft"></div>
@@ -39,12 +39,11 @@
             header:{
                 left:'prev,next today',
                 center:'title',
-                right:'month,listDay'
+                right:'month'
             },
             buttonText: {
                 today: "{{ __('Today') }}",
-                month: "{{ __('Month') }}",
-                listDay: "{{ __('List day') }}"
+                month: "{{ __('Month') }}"
             },
             events : [
                 @foreach($dias as $dia)

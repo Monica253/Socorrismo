@@ -8,10 +8,7 @@
 
 @section('content')
     <div class="row w-100 mt-2 mb-2 ml-2">
-        <div class="col-sm-3">
-            <img src="https://www.waimea.school.nz/wp-content/uploads/2020/04/muliple-Users.png" class="w-100" alt="">
-        </div>
-        <div class="col-sm-8">
+        <div class="col-sm-11">
             <div class="card">
                 <div class="card-header bg-primary">{{ __('Users management') }}</div>
                 <div class="card-body">
@@ -28,10 +25,7 @@
     </div>
     <!--**************************-->
     <div class="row w-100 mt-2 mb-2 ml-2">
-        <div class="col-sm-3">
-            <img src="https://icon-library.com/images/hotel-icon/hotel-icon-5.jpg" class="w-100" alt="">
-        </div>
-        <div class="col-sm-8">
+        <div class="col-sm-11">
             <div class="card">
                 <div class="card-header bg-primary">{{ __('Hotels management') }}</div>
                 <div class="card-body">
@@ -49,10 +43,7 @@
     </div>
     <!--**************************-->
     <div class="row w-100 mt-2 mb-2 ml-2">
-        <div class="col-sm-3">
-            <img src="https://i.pinimg.com/originals/39/b7/83/39b7837625da3230df4e0d83ea0d31f4.png" class="w-100" alt="">
-        </div>
-        <div class="col-sm-8">
+        <div class="col-sm-11">
             <div class="card">
                 <div class="card-header bg-primary">{{ __('Pools management') }}</div>
                 <div class="card-body">
@@ -70,10 +61,7 @@
     </div>
     <!--**************************-->
     <div class="row w-100 mt-2 mb-2 ml-2">
-        <div class="col-sm-3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Google_Calendar_icon.svg/493px-Google_Calendar_icon.svg.png" class="w-100" alt="">
-        </div>
-        <div class="col-sm-8">
+        <div class="col-sm-11">
             <div class="card">
                 <div class="card-header bg-primary">{{ __('Timetables management') }}</div>
                 <div class="card-body">
