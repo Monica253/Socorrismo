@@ -1,62 +1,229 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Gestión Socorrismo
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este proyecto se basa en la creación de un software para gestionar empresas de socorrismo, u otras que realicen una funcionalidad parecida.
 
-## About Laravel
+Esta aplicación permitirá a los encargados y/o jefes gestionar los cuadrantes de los trabajadores, también podrán gestionar los hoteles con los que trabaja la empresa y las diversas piscinas que posean, que serán los lugares de trabajo de dichos empleados.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Por otra parte, permitirá a los usuarios (trabajadores) consultar información relacionada con los hoteles y piscinas mencionados anteriormente, como su localización, horario, etc., y consultar sus horarios de trabajo de forma más cómoda, a través de la aplicación en un calendario en el que podrán elegir si verlo por día, mes, año, o si prefieren en un listado.
+Además, también dispondrán de la información de contacto de los encargados por si la necesitaran en algún momento en caso de duda respecto a la aplicación u otro tema.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+La aplicación, una vez instalada, será accesible tanto desde un pc, como desde un móvil, facilitando la consulta a través de estos dispositivos. Se adapta a todo tipo de pantallas, pero por comodidad, para los encargados, que serán los que usen el panel de administrador para registrar hoteles, crear días laborales, etc., se les recomienda que la usen desde un pc, ya que así tendrían una visión más amplia a la hora de rellenar los formularios de registro.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Pre-requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Tener instalado:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Xampp u otro sistema de gestión de bases de datos [Instalar](https://www.apachefriends.org/es/index.html)
+- Visual Studio Code u otro editor de código [Instalar](https://code.visualstudio.com/)
+- php7.3
+- composer v2 [Instalar](https://getcomposer.org/download/)
+- mysql
+- npm
 
-## Laravel Sponsors
+## Guía si se va a descargar en local 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Si estamos trabajando en windows debemos tener instalado un entorno web.
+En este caso [Xampp](https://www.apachefriends.org/es/index.html).
 
-### Premium Partners
+En este paquete se incluye el lenguaje php y la base de datos mysql.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+Clonar el proyecto en la carpeta C:\xampp\htdocs
+```
+git clone https://github.com/Monica253/Socorrismo.git
+```
 
-## Contributing
+Instalar npm (versión 14)
+```
+node -v
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh (instalar nvm)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash (instalar nvm)
+source ~/.bashrc
+nvm list-remote (listar versiones de node)
+nvm install v14.15.4 (instalar una versión concreta)
+npm install (instalar dependencias de jetstream y lo que haya instalado)
+npm run production / npm run dev
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Una vez clonado, el directorio del proyecto se encontrará en: C:\xampp\htdocs\Socorrismo
 
-## Code of Conduct
+Configurar fichero para visualizar proyecto en navegador a través de una ruta: C:\xampp\apache\conf\extra\httpd-vhosts.conf
+```
+<VirtualHost socorrismo.test:80>
+	DocumentRoot "C:\xampp\htdocs\socorrismo\public"
+	ServerName localhost
+</VirtualHost>
+<VirtualHost socorrismo.test:80>
+	DocumentRoot "C:\xampp\htdocs\socorrismo\public"
+	ServerName socorrismo.test
+	<Directory "C:\xampp\htdocs\socorrismo\public">
+		Options All
+		AllowOverride All
+		Require all granted
+	</Directory>
+</VirtualHost>
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Configurar fichero hosts para poder acceder a ese dominio: C:\Windows\System32\drivers\etc\hosts
+```
+127.0.0.1	Socorrismo.test
+```
 
-## Security Vulnerabilities
+Con el servidor preparado, iniciamos el servidor Apache y el MySQL, y ponemos la ruta (del vhosts) en el navegador.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Si todo se ha realizado según lo descrito, debería ser esta -> http://socorrismo.test/
 
-## License
+**Nota** La base de datos la tendremos que crear, se puede crear fácilmente a través del phpMyAdmin, para acceder es esta url http://localhost/phpmyadmin.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Habría que crear la base de datos "socorrismo".
+
+También hay que crear un archivo .env, y copiar y pegar directamente todo el contenido del fichero .env.example.
+
+Ejecutamos el comando
+```
+php artisan key:generate
+```
+
+Instalamos las dependecias.
+**Importante:** Para que funcione tenemos que estar situados en la carpeta del proyecto.
+```
+composer update
+npm install
+```
+
+Antes de ejecutar las migraciones comprobamos 
+Ejecutamos las migraciones
+```
+php artisan migrate
+```
+
+Ejecutamos los seeders
+```
+php artisan db:seed
+```
+
+
+## Guía si se va a descargar en Goormide 
+
+### Preparación del contenedor
+
+* Elegir un nombre
+* Stack en php y activar los modulos adicionales 
+· Install MySQL
+· Enable mysql-ctl command
+
+#### Preparación del entorno
+
+Es recomendable ejecutar 
+```
+sudo apt-get update
+```
+y 
+```
+sudo apt-get upgrade
+```
+antes de comenzar con las instalaciones.
+
+Descargamos la version 2 de composer
+```
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+```
+
+Ahora procedemos a descargar las extensiones necesarias
+
+##### Extensiones de php necesarias
+
+· php-xml
+```
+sudo apt install php7.3-xml
+```
+
+· php-mbstring
+```
+sudo apt-get install php7.3-mbstring
+```
+
+· php-mysql
+```
+sudo apt-get install php7.3-mysql
+```
+
+#### Preparación de la bbdd
+	
+* Instalar y activar mysql 
+```
+sudo apt install mysql
+sudo service mysql start
+```
+
+* Entrar a la bbdd como usuario root
+```
+sudo mysql --user=root mysql
+```
+* Eliminar el usuario root
+```
+drop user root@localhost;
+```
+* Crear un nuevo usuario con una contraseña
+```
+CREATE USER 'root'@'localhost' IDENTIFIED BY '';
+```
+* Crear base de datos
+```
+CREATE DATABASE socorrismo;
+```
+* Otogar todos los privilegios al usuario
+```
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
+```
+* Limpiar cache
+```
+FLUSH PRIVILEGES;
+```
+
+Clonamos y actualizamos
+```
+git clone https://github.com/Monica253/Socorrismo.git
+```
+Creamos el fichero .env como en el caso anterior
+```
+composer update
+npm install
+```
+
+#### Activar el servidor en goormide
+
+Tener en cuenta que el servcio mysql debe estar activo.
+```
+sudo service mysql start
+```
+Con mysql iniciado, podemos ejecutar las migraciones
+```
+php artisan migrate
+```
+Y ejecutar los seeders
+```
+php artisan db:seed
+```
+
+En Goormide tenemos la opción run. El script que viene por defecto es 
+```
+php -S 0.0.0.0:${current.using.port} -t ${current.project.path}
+```
+Debemos modificarlo y poner para que nos coja la carpeta del proyecto
+```
+php -S 0.0.0.0:${current.using.port} -t ${current.project.path}/Socorrismo/public
+```
+**Nota:** Ten en cuenta que si necesitas acceder de nuevo a la consola mysql tendrás que acceder con el siguiente comando
+```
+sudo mysql --user=root -p
+```
+y a continuación poner la contraseña que establecimos anteriormente (ninguna en este caso).
+
+## Construido con 
+
+* [Laravel](https://laravel.com/docs/8.x/readme) - El framework web usado
+
+## Autora
+
+**Mónica Betancort** - *Trabajo Inicial* - [Mónica Betancort](https://github.com/Monica253/Socorrismo)
