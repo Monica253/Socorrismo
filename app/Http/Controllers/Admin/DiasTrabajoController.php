@@ -58,8 +58,8 @@ class DiasTrabajoController extends Controller
             'user_id' => 'required',
             'centro_id' => 'required',
             'piscina_id' => 'required',
-            'fecha_inicio' => 'required',
-            'fecha_fin' => 'required',
+            'fecha_inicio' => 'required|after:today',
+            'fecha_fin' => 'required|after:fecha_inicio',
             'horarios' => 'required',
         ]);
 
